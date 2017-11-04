@@ -782,7 +782,7 @@ class IndexController extends Controller {
     	return view('templates.banggia_tpl');
     }
     public function detailBangGia($alias){
-    	$data = DB::table('about')->where('com','bang-gia')->where('alias',$alias)->first();
+    	$data = DB::table('banggia')->where('alias',$alias)->first();
     	return view('templates.detail_banggia', compact('data'));
     }
 }

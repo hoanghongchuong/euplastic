@@ -8,7 +8,7 @@
     <small>@yield('action')</small>
   </h1>
   <ol class="breadcrumb">
-    <li><a href="admin"><i class="fa fa-dashboard"></i> Home</a></li>
+    <li><a href="backend"><i class="fa fa-dashboard"></i> Home</a></li>
     <li><a href="javascript:">@yield('controller')</a></li>
     <li class="active">@yield('action')</li>
   </ol>
@@ -51,10 +51,10 @@
                 <td>{{$item->address}}</td>                            
                 <td>{{$item->website}}</td>
                 <td class="text-center with_dieuhuong">
-                  <i class="fa fa-pencil fa-fw"></i><a href="admin/chinhanh/edit/{{$item->id}}">Edit</a>
+                  <i class="fa fa-pencil fa-fw"></i><a href="backend/chinhanh/edit/{{$item->id}}">Edit</a>
                 </td>
                 <td class="text-center">
-                  <i class="fa fa-trash-o fa-fw"></i><a onClick="if(!confirm('Xác nhận xóa')) return false;" href="{{asset('admin/chinhanh/delete/'.$item->id)}}">Delete</a>
+                  <i class="fa fa-trash-o fa-fw"></i><a onClick="if(!confirm('Xác nhận xóa')) return false;" href="{{asset('backend/chinhanh/delete/'.$item->id)}}">Delete</a>
                 </td>
               </tr>
               @endforeach
@@ -63,9 +63,9 @@
         </div><!-- /.box-body -->
         <div class="box-footer col-md-12">
           <div class="col-md-6">
-            <input type="button" onclick="javascript:window.location='admin/chinhanh/create'" value="Thêm" class="btn btn-primary" />
+            <input type="button" onclick="javascript:window.location='backend/chinhanh/create'" value="Thêm" class="btn btn-primary" />
             <!-- <button type="button" id="xoahet" class="btn btn-success">Xóa</button> -->
-            <input type="button" value="Thoát" onclick="javascript:window.location='admin'" class="btn btn-danger" />
+            <input type="button" value="Thoát" onclick="javascript:window.location='backend'" class="btn btn-danger" />
 
           </div>
         </div>

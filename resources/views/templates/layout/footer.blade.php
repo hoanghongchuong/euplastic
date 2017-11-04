@@ -1,6 +1,7 @@
 <?php
     $setting = Cache::get('setting');
     $about = Cache::get('about');
+    $cateProducts = Cache::get('cateProducts');
 ?>
 <footer class="vk-footer">
     <div class="container">
@@ -10,8 +11,8 @@
                     <li class="vk-list__item"><a href="{{url('')}}" title=""><i class="fa fa-home" style="font-size: 18px;"> </i>&nbsp; Trang chủ</a></li>
                     <li class="vk-list__item"><a href="{{url('gioi-thieu')}}" title="">Giới thiệu</a></li>
                     <li class="vk-list__item"><a href="{{url('san-pham')}}" title="">Sản phẩm</a></li>
-                    <li class="vk-list__item"><a href="news.html" title="">Bảng giá</a></li>
-                    <li class="vk-list__item"><a href="news.html" title="">Chứng chỉ kĩ thuật</a></li>
+                    <li class="vk-list__item"><a href="{{url('bang-gia')}}" title="">Bảng giá</a></li>
+                    <li class="vk-list__item"><a href="{{url('chung-chi-ki-thuat')}}" title="">Chứng chỉ kĩ thuật</a></li>
                     <li class="vk-list__item"><a href="{{url('tin-tuc')}}" title="">Tin tức</a></li>
                 </ul>
             </nav>
@@ -36,11 +37,14 @@
             <div class="vk-footer__col col-lg-5">
                 <div class="vk-footer__info">
                     <h3 class="vk-footer__title">{{$setting->company}}</h3>
-                    <p><i class="fa fa-home"></i> &nbsp; Trụ sở Hồ Chí Minh : Số 68/8A Đường Trần Tấn, P.Tân Sơn Nhì, Q.Tân Phú, TP.HCM - Tel :
-                        <a href="callto:02838493888" title=""><strong>0283.8493888</strong></a></p>
-                    <p><i class="fa fa-home"></i> &nbsp; Chi nhánh Hà Nội : Số 19 ngõ 79 phố Yên Duyên, P.Yên Sở, Q.Hoàng Mai, TP. Hà Nội - Tel :
-                        <a href="callto:02432009195" title=""><strong>0243.2009195</strong></a></p>
-                    <p><i class="fa fa-envelope"></i> &nbsp; <strong>Email:</strong> <a href="mailto:phukieneuplastic@gmail.com" title="">phukieneuplastic@gmail.com</a></p>
+                    <?php $truso = DB::table('chinhanh')->get(); ?>
+                    @foreach($truso as $t)
+                    <p><i class="fa fa-home"></i> &nbsp; {{$t->address}} <br> Tel :
+                        <a href="{{$t->phone}}" title=""><strong>{{$t->phone}}</strong></a>
+                    </p>
+                    @endforeach
+                   
+                    <p><i class="fa fa-envelope"></i> &nbsp; <strong>Email:</strong> <a href="mailto:{{$setting->email}}" title="">{{$setting->email}}</a></p>
                 </div>
             </div>
 
@@ -57,15 +61,11 @@
             <div class="vk-footer__col d-none d-lg-block col-lg-3">
                 <h3 class="vk-footer__title">SẢN PHẨM</h3>
                 <ul class="vk-list vk-list--style-1">
-                    <li class="vk-list__item"><a href="shop.html" title="">Phụ kiện vặn ren</a></li>
-                    <li class="vk-list__item"><a href="shop.html" title="">Đai khởi thủy</a></li>
-                    <li class="vk-list__item"><a href="shop.html" title="">Van nhựa</a></li>
-                    <li class="vk-list__item"><a href="shop.html" title="">Phụ kiện HDPE hàn đối đầu</a></li>
-                    <li class="vk-list__item"><a href="shop.html" title="">Máy hàn ông HDPE, PPR</a></li>
+                    @foreach($cateProducts as $cate)
+                    <li class="vk-list__item"><a href="{{url('san-pham/'.$cate->alias)}}" title="">{{$cate->name}}</a></li>
+                    @endforeach    
                 </ul>
             </div>
-
-
         </div> <!--./mid-->
 
     </div> <!--./container-->

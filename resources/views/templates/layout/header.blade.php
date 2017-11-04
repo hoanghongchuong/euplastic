@@ -37,11 +37,13 @@
                     <li class="vk-list__item">
                         <a href="{{url('bang-gia')}}" title="">Bảng giá</a>
                         <ul class="vk-list vk-menu__child">
-                            <li class="vk-list__item"><a href="price-table-detail.html" title="">Bảng giá Hà Nội</a></li>
-                            <li class="vk-list__item"><a href="price-table-detail.html" title="">Bảng TP Hồ Chí Minh</a></li>
+                            <?php $banggias = DB::table('banggia')->get(); ?>
+                            @foreach($banggias as $banggia)
+                            <li class="vk-list__item"><a href="{{url('bang-gia/'.$banggia->alias.'.html')}}" title="">{{$banggia->name}}</a></li>
+                            @endforeach
                         </ul>
                     </li>
-                    <li class="vk-list__item"><a href="certify.html" title="">Chứng chỉ kỹ thuật</a></li>
+                    <li class="vk-list__item"><a href="{{url('chung-chi-ki-thuat')}}" title="">Chứng chỉ kỹ thuật</a></li>
                     <li class="vk-list__item">
                         <a href="{{url('tin-tuc')}}" title="">Tin tức</a>
                         <ul class="vk-list vk-menu__child">
@@ -85,7 +87,7 @@
                             <li class=""><a href="price-table-detail.html" title="">Bảng TP Hồ Chí Minh</a></li>
                         </ul>
                     </li>
-                    <li class=""><a href="certify.html" title="">Chứng chỉ kỹ thuật</a></li>
+                    <li class=""><a href="{{url('chung-chi-ki-thuat')}}" title="">Chứng chỉ kỹ thuật</a></li>
                     <li class="">
                         <a href="{{url('tin-tuc')}}" title="">Tin tức</a>
                         <ul class=" ">
@@ -110,10 +112,15 @@
                 </a>
             </div>
             <div class="collapse vk-header__search-form" id="search">
-                <div class="vk-form vk-form--search collapse" >
-                    <input type="text" class="form-control">
-                    <button class="vk-btn vk-btn--submit vk-btn--green-1"><i class="fa fa-long-arrow-right"></i></button>
-                </div>
+                 <form action="{{route('search')}}" method="get" accept-charset="utf-8">
+                    <div class="vk-form vk-form--search collapse" >
+                       
+                             <input type="hidden" name="_token" value="{!! csrf_token() !!}" />
+                            <input type="text" name="txtSearch" class="form-control">
+                            <button class="vk-btn vk-btn--submit vk-btn--green-1" type="submit"><i class="fa fa-long-arrow-right"></i></button>
+                        
+                    </div>
+                </form>
             </div>
 
         </div> <!--./wrapper-->

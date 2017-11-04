@@ -79,7 +79,7 @@
 
 									<div class="form-group">
 								      	<label for="desc">Mô tả</label>
-								      	<textarea name="txtDesc" rows="5" class="form-control"></textarea>
+								      	<textarea name="txtDesc" id="txtContent" rows="5" class="form-control"></textarea>
 									</div>
 									
 									<input type="hidden" name="txtCom" value="{{ @$_GET['type'] }}"/>

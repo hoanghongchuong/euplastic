@@ -20,7 +20,13 @@
     <div class="box">
       @include('admin.messages_error')
         <div class="box-body">
-          
+          @if (count($errors) > 0)
+            <div class="form-group has-error">
+              @foreach ($errors->all() as $error)
+              <label class="control-label" for="inputError"><i class="fa fa-times-circle-o"></i> {!! $error !!}</label><br>
+              @endforeach
+            </div>
+          @endif
           <form name="frmAdd" method="post" action="{{route('admin.chinhanh.postCreate')}}">
             <input type="hidden" name="_token" value="{!! csrf_token() !!}" />
                           

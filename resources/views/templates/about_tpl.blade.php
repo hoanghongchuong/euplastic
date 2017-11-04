@@ -45,7 +45,7 @@
                     <div class="vk-sidebar__box">
 
                         <ul class="vk-list vk-list--style-3">
-                            <?php $abouts = DB::table('about')->where('status',1)->get(); ?>
+                            <?php $abouts = DB::table('about')->where('status',1)->where('com','gioi-thieu')->get(); ?>
                             @foreach($abouts as $a)
                             <li class="vk-list__item @if($about->alias == $a->alias) active @endif"><a href="{{url('gioi-thieu/'.$a->alias)}}" title="">{{$a->name}}</a></li>
                             @endforeach

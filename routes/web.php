@@ -381,14 +381,12 @@ Route::group(['middleware' =>'authen', 'prefix' => 'backend'], function(){
 		Route::get('/',['as'=>'admin.banggia.index','uses'=>'Admin\BangGiaController@getList']);
 		Route::get('add',['as'=>'admin.banggia.getAdd','uses'=>'Admin\BangGiaController@getAdd']);
 		Route::post('add',['as'=>'admin.banggia.postAdd','uses'=>'Admin\BangGiaController@postAdd']);
-
-		Route::get('edit/{id}',['as'=>'admin.banggia.getEdit','uses'=>'Admin\BagGiarController@getEdit']);
+		Route::get('edit/{id}',['as'=>'admin.banggia.getEdit','uses'=>'Admin\BangGiaController@getEdit']);
 		Route::post('edit/{id}',['as'=>'admin.banggia.update','uses'=>'Admin\BangGiaController@update']);
-
 		Route::get('delete/{id}',['as'=>'admin.banggia.getDelete','uses'=>'Admin\BangGiaController@getDelete']);
 		
-
 	});
+	
 	Route::post('uploadImg', ['as'=>'admin.uploadImg' ,'uses'=>'Admin/UploadController@uploadImg']);
 	Route::post('dropzone/store', ['as'=>'dropzone.store','uses'=>'Admin/ProductController@dropzoneStore']);
 

@@ -1,57 +1,96 @@
 @extends('index')
 @section('content')
-<div class="wrap-breadcrumb">
-    <div class="clearfix container">
-        <div class="row main-header">                           
-            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 pd5  ">
-                <ol class="breadcrumb breadcrumb-arrows">
-                    <li><a href="{{url('')}}" target="_self">Trang chủ</a></li>
-                    <li><a href="#" target="_self">Tìm kiếm</a></li>
-                    <!-- <li class="active"><span>Tất cả sản phẩm</span></li> -->
-                </ol>
+<?php
+    $setting = Cache::get('setting');
+    $about = Cache::get('about');
+?>
+
+<section class="vk-content">
+    <div class="vk-breadcrumb">
+        <div class="vk-breadcrumb__banner">
+            <div class="vk-img vk-img--cover">
+                <img src="{{asset('public/images/banner/banner-1.jpg')}}" alt="" class="">
             </div>
         </div>
-    </div>                          
-</div>
-<section id="content" class="clearfix container">  
-    <div class="row">
-      @foreach($products as $product)
-        <div class="col-md-4  col-sm-6 col-xs-12 pro-loop">
-            <div class="product-block product-resize">
-                <div class="product-img image-resize view view-third">
-                    <a href="{{url('san-pham/'.$product->alias.'.html')}}" title="Xe trượt HDL">
-                        <img class="first-image  has-img" alt=" {{$product->name}} " src="{{asset('upload/product/'.$product->photo)}}"  /> <?php @$image = DB::table('images')->where('product_id', $product->id)->orderBy('id','asc')->first();
-                          
-                         ?>     
-                        <img  class ="second-image" src="{{asset('upload/hasp/'.@$image->photo)}}"  alt="{{$product->name}}" />
-                    </a>
-                    <div class="actionss">
-                        <!-- <div class="btn-cart-products">
-                            <a href="javascript:void(0);" onclick="add_item_show_modalCart(1009814358)">
-                                <i class="fa fa-shopping-bag" aria-hidden="true"></i>
-                            </a>
-                        </div>
-                        <div class="view-details">
-                            <a href="{{url('san-pham/'.$product->alias.'.html')}}" class="view-detail" > 
-                                <span><i class="fa fa-clone"> </i></span>
-                            </a>
-                        </div>
-                        <div class="btn-quickview-products">
-                            <a href="javascript:void(0);" class="quickview" data-handle="detail.html"><i class="fa fa-eye"></i></a>
-                        </div> -->
-                    </div>
-                </div>
-                <div class="product-detail clearfix">
-                    <!-- sử dụng pull-left -->
-                    <h3 class="pro-name"><a href="{{url('san-pham/'.$product->alias.'.html')}}" title="{{$product->name}}">{{$product->name}} </a></h3>
-                    <div class="pro-prices">    
-                        <p class="pro-price">{{number_format($product->price)}} ₫</p>
-                        <p class="pro-price-del text-left"></p> 
-                    </div>
-                </div>
-            </div>  
-        </div> 
-        @endforeach   
+        <div class="vk-breadcrumb__content">
+            <nav class="container">
+                <ul class="vk-list vk-list--inline vk-list--breadcrumb">
+                    <li class="vk-list__item"><a href="{{url('')}}">Trang chủ</a></li>
+
+                    <li class="vk-list__item active">Tìm kiếm</li>
+                </ul>
+            </nav>
+        </div>
+
     </div>
+    <!--./vk-breadcrumb-->   
+    <div class="vk-page vk-page--shop">
+        <div class="container">
+            <div class="vk-shop__info">
+                <h1 class="vk-page__heading animation fadeIn ">TẤT CẢ SẢN PHẨM</h1>
+                
+            </div> 
+
+
+            <ul class="vk-list vk-shop__nav">
+                 @foreach($cate_pro as $cate)
+                    <li class="vk-list__item animation fadeInLeft"><a href="{{url('san-pham/'.$cate->alias)}}" title="">{{$cate->name}}</a></li>
+                @endforeach
+            </ul> <!--./nav-->
+
+
+            <div class="vk-shop__list row">
+                @foreach($products as $product)
+                <div class="col-sm-6 col-md-4 col-lg-3 _item">
+                    <div class="vk-shop-item animation fadeIn">
+                        <div class="vk-img vk-img--mw100">
+                            <a href="{{url('san-pham/'.$product->alias.'.html')}}" title="{{$product->name}}" class="vk-img__link">
+                                <img src="{{asset('upload/product/'.$product->photo)}}" alt="{{$product->name}}" class="vk-img__img">
+                            </a>
+                        </div>
+
+                        <div class="vk-shop-item__brief">
+                            <h3 class="vk-shop-item__title"><a href="{{url('san-pham/'.$product->alias.'.html')}}" title="{{$product->name}}">{{$product->name}}</a></h3>
+
+                            <div class="vk-rate vk-text--yellow-1">
+                                <span class="vk-rate__item"><i class="fa fa-star"></i></span>
+                                <span class="vk-rate__item"><i class="fa fa-star"></i></span>
+                                <span class="vk-rate__item"><i class="fa fa-star"></i></span>
+                                <span class="vk-rate__item"><i class="fa fa-star"></i></span>
+                                <span class="vk-rate__item"><i class="fa fa-star"></i></span>
+                            </div> <!--./rate-->
+                        </div>
+                    </div> <!--./vk-shop-item-->
+                </div>
+                @endforeach
+            </div> <!--./list-->
+
+            
+
+        </div> <!--./container-->
+    </div><!--./page-->
+
+    <div class="vk-partner animation fadeIn">
+        <div class="container">
+            <div class="vk-partner__list row vk-slider" data-slider="partner">
+                <?php $partners = DB::table('partner')->where('status',1)->orderBy('id','desc')->get(); ?>
+                @foreach($partners as $partner)
+                <div class="col-lg-2 _item">
+                    <div class="vk-partner__item">
+                        <div class="vk-img--mw100">
+                            <img src="{{asset('upload/banner/'.$partner->photo)}}" alt="">
+                        </div>
+                    </div>
+                </div>
+                @endforeach
+                
+            </div>
+        </div><!-- /.container -->
+    </div> <!--./partner-->
+
+    <div class="vk-map">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3725.5858091078217!2d105.86899801486167!3d20.96914219518686!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135ac25be4ca5e3%3A0xe81d88694b0116b9!2zWcOqbiBEdXnDqm4sIFnDqm4gU-G7nywgSG_DoG5nIE1haSwgSMOgIE7hu5lpLCBWaWV0bmFt!5e0!3m2!1sen!2s!4v1509524787964" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+    </div>
+
 </section>
 @endsection

@@ -2,6 +2,7 @@
 @section('content')
 <?php
     $setting = Cache::get('setting');
+    $cateProducts = Cache::get('cateProducts');
 ?>
 <section class="vk-content">
     <div class="vk-breadcrumb">
@@ -30,11 +31,11 @@
                 <div class="col-lg-10">
                     <div class="">{!! $data->content !!}</div>
                     <div class="vk-button text-center">
-                        <a href="#" title="Download"><img src="images/icon/download.png" alt=""></a>
+                        <a href="{{asset('upload/document/'.$data->doc)}}" title="Download"><img src="{{asset('public/images/icon/download.png')}}" alt=""></a>
                     </div>
 
                     <div class="vk-comment">
-                        <img src="images/icon/chat-fb.jpg" alt="" class="img-fluid">
+                        <div class="fb-comments" data-href="{{url('tin-tuc/'.$data->alias.'.html')}}" data-width="100%" data-numposts="5"></div>
                     </div>
                 </div> <!--./col-->
 
@@ -43,12 +44,9 @@
                         <div class="vk-sidebar__box">
                             <nav class="vk-shop__nav">
                                 <ul class="vk-list vk-shop__nav vk-shop__nav--mod-1">
-                                    <li class="vk-list__item"><a href="shop.html" title="">Hàng vặn ren</a></li>
-                                    <li class="vk-list__item"><a href="shop.html" title="">Hàng khởi thủy</a></li>
-                                    <li class="vk-list__item"><a href="shop.html" title="">Van</a></li>
-                                    <li class="vk-list__item"><a href="shop.html" title="">HDPE hàn nổi đầu</a></li>
-                                    <li class="vk-list__item"><a href="shop.html" title="">HDPE hàn điện trở</a></li>
-                                    <li class="vk-list__item"><a href="shop.html" title="">HDPE hàn lồng</a></li>
+                                    @foreach($cateProducts as $cate)
+                                    <li class="vk-list__item"><a href="{{url('san-pham/'.$cate->alias)}}" title="">{{$cate->name}}</a></li>
+                                    @endforeach
                                 </ul>
                             </nav> <!--./nav-->
                         </div> <!--./box-->
@@ -57,7 +55,7 @@
                             <div class="vk-sidebar__box d-none d-lg-block">
                                 <div class="vk-ads vk-img">
                                     <a href="#" title="">
-                                        <img src="images/ads/ads-1.jpg" alt="" >
+                                        <img src="{{asset('public/images/ads/ads-1.jpg')}}" alt="" >
                                     </a>
                                 </div>
                             </div><!--./box-->

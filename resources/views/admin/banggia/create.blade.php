@@ -24,7 +24,6 @@
           <form name="frmAdd" method="post" action="{!! route('admin.banggia.postAdd') !!}" enctype="multipart/form-data">
             <input type="hidden" name="_token" value="{!! csrf_token() !!}" />
             
-              
             <div class="clearfix"></div>
             
             <div class="col-md-6">
@@ -45,7 +44,8 @@
               <div class="form-group">
                  
                       <input type="file" name="filesTest" required="true">
-                      <br/>
+                      <!-- <br/> -->
+                      <p style="color: red">dung lượng file không vượt quá 2MB</p>
                       <!-- <input type="submit" value="upload"> -->
                   
               </div>

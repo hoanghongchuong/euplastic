@@ -16,7 +16,6 @@ class AboutController extends Controller
     {  
         if($_GET['type']=='gioi-thieu') $trang='giới thiệu';
         else if($_GET['type']=='tuyen-dung') $trang='tuyển dụng';
-        else if($_GET['type']=='bang-gia') $trang='bảng giá';
         $data = About::all();
         return view('admin.about.index', compact('data','trang'));
     }
@@ -29,7 +28,6 @@ class AboutController extends Controller
 
     public function getList(Request $request){
         if($_GET['type']=='gioi-thieu') $trang='giới thiệu';
-        else if($_GET['type']=='bang-gia') $trang='bảng giá';
         else $trang = "bài viết";
         // $data = About::get();
 
@@ -46,9 +44,7 @@ class AboutController extends Controller
     }
     public function getAdd(){
         if($_GET['type']=='gioi-thieu') $trang='giới thiệu';
-        else if($_GET['type']=='bang-gia') $trang='bảng giá';
         else $trang = "bài viết";
-
         if(!empty($_GET['type'])){
             $com=$_GET['type'];
         }else{
@@ -79,6 +75,7 @@ class AboutController extends Controller
     {
         $id= $request->get('id');    
         if($_GET['type']=='gioi-thieu') $trang='Giới thiệu';
+
         else $trang= 'Bài viết';
 
 

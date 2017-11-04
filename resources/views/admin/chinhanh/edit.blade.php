@@ -21,7 +21,7 @@
       @include('admin.messages_error')
         <div class="box-body">
           
-          <form name="frmAdd" method="post" action="{{asset('admin/chinhanh/edit/'.$chinhanh->id)}}">
+          <form name="frmAdd" method="post" action="{{asset('backend/chinhanh/edit/'.$chinhanh->id)}}">
               <input type="hidden" name="_token" value="{!! csrf_token() !!}" />
                             
               <div class="clearfix"></div>
@@ -30,31 +30,28 @@
                   <label for="">Tên chi nhánh</label>
                   <input type="text" name="txtName" class="form-control" value="{{$chinhanh->name}}">
                 </div>
-              </div>
-              <div class="col-md-6">
+                <div class="form-group">
+                  <label for="">Địa chỉ</label>
+                  <input type="text" name="txtAddress" class="form-control" value="{{$chinhanh->address}}">
+                </div>
                 <div class="form-group">
                   <label for="">Số điện thoại</label>
                   <input type="text" name="txtPhone" class="form-control" value="{{$chinhanh->phone}}">
                 </div>
               </div>
-              <div class="col-md-6">
-                <div class="form-group">
-                  <label for="">Địa chỉ</label>
-                  <input type="text" name="txtAddress" class="form-control" value="{{$chinhanh->address}}">
-                </div>
-              </div>
-              <div class="col-md-6">
+              
+              <!-- <div class="col-md-6">
                 <div class="form-group">
                   <label for="">Website</label>
                   <input type="text" name="website" class="form-control" value="{{$chinhanh->website}}">
                 </div>
-              </div>
+              </div> -->
             <div class="clearfix"></div>
             <div class="box-footer">
               <div class="row">
               <div class="col-md-6">
                   <button type="submit" class="btn btn-primary">Lưu</button>
-                  <button type="button" onclick="javascript:window.location=''" class="btn btn-danger">Thoát</button>
+                  <button type="button" onclick="javascript:window.location='backend/chinhanh'" class="btn btn-danger">Thoát</button>
                 </div>
               </div>
             </div>
