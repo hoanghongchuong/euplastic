@@ -14,6 +14,7 @@
 
 Route::get('/', ['as'=>'index', 'uses'=>'IndexController@index']);
 Route::get('gioi-thieu/{alias}',['as'=>'getAbout', 'uses'=>'IndexController@getAbout']);
+Route::get('chung-chi-ki-thuat',['as'=>'getChungChi', 'uses'=>'IndexController@getChungChi']);
 
 
 Route::get('lien-he',['as'=>'getContact', 'uses'=>'ContactController@getContact']);
@@ -251,6 +252,16 @@ Route::group(['middleware' =>'authen', 'prefix' => 'backend'], function(){
 		Route::post('edit',['as'=>'admin.about.update','uses'=>'Admin\AboutController@update']);
 
 		Route::get('{id}/delete',['as'=>'admin.about.getDelete','uses'=>'Admin\AboutController@getDelete']);
+	});
+	Route::group(['prefix' => 'gioithieu'], function(){
+		Route::get('/','Admin\GioiThieuController@index')->name('admin.gioithieu.index');
+		Route::get('add','Admin\GioiThieuController@getAdd')->name('admin.gioithieu.getAdd');
+		Route::post('postAdd',['as'=>'admin.gioithieu.postAdd','uses'=>'Admin\GioiThieuController@postAdd']);
+
+		Route::get('edit/{id}',['as'=>'admin.gioithieu.getEdit','uses'=>'Admin\GioiThieuController@getEdit']);
+		Route::post('edit/{id}',['as'=>'admin.gioithieu.update','uses'=>'Admin\GioiThieuController@postEdit']);
+
+		Route::get('delete/{id}',['as'=>'admin.gioithieu.getDelete','uses'=>'Admin\GioiThieuController@delete']);
 	});
 	Route::group(['prefix' => 'lienket'], function(){
 		Route::get('/',['as'=>'admin.lienket.index','uses'=>'Admin\LienKetController@getList']);

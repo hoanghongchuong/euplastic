@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class UploadFileRequest extends FormRequest
+class GioithieuRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -21,10 +21,10 @@ class UploadFileRequest extends FormRequest
      *
      * @return array
      */
-     public function rules()
+    public function rules()
     {
         return [
-            'txtName' => 'required|min:2|max:100',
+            'txtName' => 'required|unique:gioithieu,name',
             'txtAlias' => 'required',
             
         ];
@@ -32,10 +32,8 @@ class UploadFileRequest extends FormRequest
     public function messages()
     {
         return [
-            'txtName.required' => 'Bạn chưa nhập tên ',
+            'txtName.required' => 'Bạn chưa nhập tên sản phẩm',
             'txtName.unique' => 'Tên bài viết bị trùng, mời nhập lại',
-            'txtName.min' => 'Tên phải có đội dài từ 2 đến 100 ký tự',
-            'txtName.max' => 'Tên phải có đội dài từ 2 đến 100 ký tự',
             'txtAlias.required' => 'Bạn chưa nhập liên kết bài viết',
             
         ];

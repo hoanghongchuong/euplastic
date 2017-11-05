@@ -65,6 +65,7 @@ class SettingController extends Controller
             $data->codechat = $request->txtCodechat;
             $data->analytics = $request->txtAnalytics;
             $data->google = $request->txtGoogle;
+            $data->skype = $request->txtSkype;
             $data->twitter = $request->txtTwitter;
             $data->facebook = $request->txtFacebook;
             $data->youtube = $request->txtYoutube;

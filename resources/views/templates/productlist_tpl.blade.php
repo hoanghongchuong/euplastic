@@ -27,13 +27,7 @@
     <div class="container">
         <div class="vk-shop__info">
             <h1 class="vk-page__heading animation fadeIn ">SẢN PHẨM</h1>
-            <p class="animation fadeIn delay1"> Bên cạnh việc sản xuất, chúng tôi còn nhập khẩu và phân phối các sản phẩm như: phụ kiện HDPE hàn nối
-                đầu, phụ kiện HDPE hàn điện trở, các loại máy hàn ống nhựa HDPE, máy thử áp lực…</p>
-            <p class="animation fadeIn delay2">
-                Tại Công ty TNHH Thiết Bị Điện Nước Hà Thành chúng tôi tin tưởng rằng chỉ có nghiêm ngặt tuân theo quy
-                trình quản lý chất lượng để tạo ra những sản phẩm đạt chất lượng cao và dịch vụ tốt, chúng tôi mới chiếm
-                được lòng tin của khách hàng đồng thời xác lập vị trí của mình trên thị trường, để người Việt có thể tin
-                dùng hàng Việt
+            <p class="animation fadeIn delay1"> {!! $product_cate->description!!}
             </p>
         </div> <!--./info-->
 

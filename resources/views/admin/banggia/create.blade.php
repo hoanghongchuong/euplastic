@@ -19,6 +19,7 @@
   
     <div class="box">
       @include('admin.messages_error')
+      
         <div class="box-body">
           
           <form name="frmAdd" method="post" action="{!! route('admin.banggia.postAdd') !!}" enctype="multipart/form-data">
@@ -43,9 +44,9 @@
               </div>
               <div class="form-group">
                  
-                      <input type="file" name="filesTest" required="true">
+                      <input type="file" name="filesTest">
                       <!-- <br/> -->
-                      <p style="color: red">dung lượng file không vượt quá 2MB</p>
+                      <p style="color:">dung lượng file không vượt quá 10MB</p>
                       <!-- <input type="submit" value="upload"> -->
                   
               </div>

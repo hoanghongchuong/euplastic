@@ -1,6 +1,6 @@
 @extends('admin.master')
 @section('content')
-@section('controller', $trang)
+@section('controller','Giới thiệu')
 @section('action','Edit')
 <!-- Content Header (Page header) -->
 <section class="content-header">
@@ -20,15 +20,15 @@
     <div class="box">
     	@include('admin.messages_error')
         <div class="box-body">
-        	<form method="post" action="backend/about/edit?type={{ @$_GET['type'] }}">
+        	<form method="post" action="backend/gioithieu/edit/{{$data->id}}">
         		<input type="hidden" name="_token" value="{!! csrf_token() !!}" />
         		
       			<div class="nav-tabs-custom">
 	                <ul class="nav nav-tabs">
 	                  	<li class="active"><a href="#tab_1" data-toggle="tab" aria-expanded="false">Thông tin chung</a></li>
-	                  	@if($_GET['type']=='gioi-thieu' || $_GET['type'] == 'chung-chi')
+	                  	
 	                  	<li><a href="#tab_2" data-toggle="tab" aria-expanded="true">SEO</a></li>
-	                  	@endif
+	                  	
 	                </ul>
 	                <div class="tab-content">
 	                  	<div class="tab-pane active" id="tab_1">
@@ -49,7 +49,6 @@
 									</div>
 								</div>
 								<div class="clearfix"></div>
-								@if($_GET['type']=='gioi-thieu')
 								<div class="col-md-12 col-xs-12">
 									<div class="box box-info">
 						                <div class="box-header">                                               
@@ -64,7 +63,7 @@
 						        		</div>
 						        	</div>
 								</div>
-								@endif
+								
 								<div class="col-md-12 col-xs-12">
 									<div class="box box-info">
 						                <div class="box-header">                                               

@@ -52,7 +52,7 @@
                     </div>
                     <label for="file">Chọn file</label>
                       <input type="file" id="file" name="filesTest" >
-                      <p style="color: red">dung lượng file không vượt quá 2MB</p>
+                      <p style="color: ">(dung lượng file không vượt quá 10MB)</p>
                   </div>
               </div>
               </div>

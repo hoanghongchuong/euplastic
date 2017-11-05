@@ -211,7 +211,7 @@ class IndexController extends Controller {
 	}
 	public function getAbout($alias)
 	{
-		$about = DB::table('about')->select()->where('alias', $alias)->first();
+		$about = DB::table('gioithieu')->select()->where('alias', $alias)->first();
 		$com='gioi-thieu';
 		// $slider_about = DB::table('lienket')->select()->where('status',1)->where('com','gioi-thieu')->orderby('stt','asc')->get();
 		// $banner_danhmuc = DB::table('lienket')->select()->where('status',1)->where('com','chuyen-muc')->where('link','gioi-thieu')->get()->first();
@@ -778,11 +778,14 @@ class IndexController extends Controller {
     }
 
     public function banggia(){
-
     	return view('templates.banggia_tpl');
     }
     public function detailBangGia($alias){
     	$data = DB::table('banggia')->where('alias',$alias)->first();
     	return view('templates.detail_banggia', compact('data'));
+    }
+    public function getChungChi(){
+    	$data = DB::table('about')->where('com','chung-chi')->first();
+    	return view('templates.chungchi', compact('data'));
     }
 }

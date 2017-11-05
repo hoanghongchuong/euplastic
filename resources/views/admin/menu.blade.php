@@ -103,8 +103,10 @@
           </ul>
         </li> -->
        
-        <li><a href="backend/about?type=gioi-thieu"><i class="fa fa-circle-o"></i> <span>Giới thiệu</span></a></li>
+        <li><a href="backend/about/edit?type=chung-chi"><i class="fa fa-circle-o"></i> <span>Chứng chỉ kĩ thuật</span></a></li>
+        <li><a href="backend/gioithieu"><i class="fa fa-circle-o"></i> <span>Giới thiệu</span></a></li>
         <li><a href="backend/about/edit?type=chung-chi"><i class="fa fa-circle-o"></i> <span>Chứng chỉ</span></a></li>
+        <li><a href="backend/banggia"><i class="fa fa-gear" aria-hidden="true"></i> <span>Quản lý bảng giá</span></a></li>
         <li><a href="backend/partner"><i class="fa fa-circle-o"></i> <span>Quản lý đối tác</span></a></li>
         <!-- <li><a href="backend/video"><i class="fa fa-circle-o"></i> <span>Video</span></a></li> -->
        

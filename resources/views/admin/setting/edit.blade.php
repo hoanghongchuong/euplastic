@@ -94,6 +94,10 @@
 								      	<input type="text" name="txtGoogle" value="{!! old('txtGoogle', isset($data) ? $data->google : null) !!}"  class="form-control" />
 									</div>
 									<div class="form-group">
+								      	<label for="ten">Skype</label>
+								      	<input type="text" name="txtSkype" value="{!! old('txtSkype', isset($data) ? $data->skype : null) !!}"  class="form-control" />
+									</div>
+									<div class="form-group">
 								      	<label for="ten">Youtube</label>
 								      	<input type="text" name="txtYoutube" value="{!! old('txtYoutube', isset($data) ? $data->youtube : null) !!}"  class="form-control" />
 									</div>

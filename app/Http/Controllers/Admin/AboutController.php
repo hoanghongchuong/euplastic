@@ -16,6 +16,7 @@ class AboutController extends Controller
     {  
         if($_GET['type']=='gioi-thieu') $trang='giới thiệu';
         else if($_GET['type']=='tuyen-dung') $trang='tuyển dụng';
+        else if($_GET['type']=='chung-chi') $trang='Chứng chỉ kĩ thuật';
         $data = About::all();
         return view('admin.about.index', compact('data','trang'));
     }
@@ -28,6 +29,7 @@ class AboutController extends Controller
 
     public function getList(Request $request){
         if($_GET['type']=='gioi-thieu') $trang='giới thiệu';
+        else if($_GET['type']=='chung-chi') $trang='Chứng chỉ kĩ thuật';
         else $trang = "bài viết";
         // $data = About::get();
 
@@ -44,6 +46,7 @@ class AboutController extends Controller
     }
     public function getAdd(){
         if($_GET['type']=='gioi-thieu') $trang='giới thiệu';
+        else if($_GET['type']=='chung-chi') $trang='Chứng chỉ kĩ thuật';
         else $trang = "bài viết";
         if(!empty($_GET['type'])){
             $com=$_GET['type'];
@@ -75,7 +78,7 @@ class AboutController extends Controller
     {
         $id= $request->get('id');    
         if($_GET['type']=='gioi-thieu') $trang='Giới thiệu';
-
+        else if($_GET['type']=='chung-chi') $trang='Chứng chỉ kĩ thuật';
         else $trang= 'Bài viết';
 
 
@@ -107,7 +110,7 @@ class AboutController extends Controller
     public function update(Request $request)
     {
         if($_GET['type']=='gioi-thieu') $trang='Giới thiệu';
-        
+        else if($_GET['type']=='chung-chi') $trang='Chứng chỉ kĩ thuật';
         else $trang= 'Bài viết';
 
         if(!empty($_GET['type'])){
@@ -136,7 +139,7 @@ class AboutController extends Controller
             $data->user_id   = Auth::user()->id;
 
             $data->save();
-            return redirect('backend/about?type='.$com)->with('status','Cập nhật thành công');
+            return redirect('backend/about/edit?type='.$com)->with('status','Cập nhật thành công');
         }else{
             return redirect()->back()->with('status','Dữ liệu không có thực');
         }
@@ -151,7 +154,7 @@ class AboutController extends Controller
         $about = About::findOrFail($id);
         $about->delete();
         File::delete('upload/about/'.$about->photo);
-        return redirect('backend/about?type='.$com)->with('status','Xóa thành công');
+        return redirect('backend/about/edit?type='.$com)->with('status','Xóa thành công');
     }
     /**
      * Remove the specified resource from storage.

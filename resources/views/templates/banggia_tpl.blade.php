@@ -30,15 +30,12 @@
                     <div class="vk-price-table__box">
                         <h1 class="vk-page__heading">BẢNG GIÁ</h1>
                         <p>
-                            Công ty TNHH sản xuất nhựa Châu Âu gửi đến quý khách hàng báo giá của 2 khu vực
-                            tiềm năng mà công ty hiện đang sở hữu là
-                            <a href="price-table-detail.html" title=""><strong class="vk-text--red-1">Tp. Hà Nội</strong></a>
-                            và <a href="price-table-detail.html" title=""><strong class="vk-text--red-1">Tp. Hồ Chí Minh</strong></a>
-
+                           <?php $slogans = DB::table('slogan')->where('id',7)->first(); ?>
+                            {!! $slogans->content !!}
                         </p>
 
                         <ul class="vk-list vk-list--style-3">
-                        	<?php $data = DB::table('about')->where('com','bang-gia')->get(); ?>
+                        	<?php $data = DB::table('banggia')->get(); ?>
                             @foreach($data as $item)
                             <li class="vk-list__item"><a href="{{url('bang-gia/'.$item->alias.'.html')}}" title="">{{$item->name}}</a></li>
 							@endforeach
@@ -49,8 +46,8 @@
                 </div> <!--./col-->
                 <div class="col-lg-6 d-none d-lg-block">
                     <div class="vk-price-table__box-1">
-                        <a href="price-table-detail.html" title="" class="vk-btn vk-btn--outline-danger">BẢNG GIÁ TẠI HÀ NỘI</a>
-                        <a href="price-table-detail.html" title="" class="vk-btn vk-btn--green-1 vk-btn--outline">BẢNG GIÁ TẠI
+                        <a href="#" title="" class="vk-btn vk-btn--outline-danger">BẢNG GIÁ TẠI HÀ NỘI</a>
+                        <a href="#" title="" class="vk-btn vk-btn--green-1 vk-btn--outline">BẢNG GIÁ TẠI
                             <br> TP. HỒ CHÍ MINH</a>
                         <img src="{{asset('public/images/price-table/map.png')}}" alt="" class="img-fluid">
                     </div> <!--./box-->

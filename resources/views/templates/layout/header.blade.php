@@ -3,6 +3,7 @@
     $menu_top = Cache::get('menu_top');
     $cateProducts = Cache::get('cateProducts');
     $about = Cache::get('about');
+    $gioithieu = DB::table('gioithieu')->where('status',1)->orderBy('id','desc')->get();
 ?>
 
 <header class="vk-header" data-layout="sticky">
@@ -20,7 +21,7 @@
                     <li class="vk-list__item">
                         <a href="about.html" title="">Giới thiệu</a>
                         <ul class="vk-list vk-menu__child">
-                        @foreach($about as $a)
+                        @foreach($gioithieu as $a)
                             <li class="vk-list__item"><a href="{{url('gioi-thieu/'.$a->alias)}}" title="">{{$a->name}}</a></li>
                         @endforeach    
                         </ul>
