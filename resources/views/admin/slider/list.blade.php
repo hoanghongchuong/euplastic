@@ -83,7 +83,7 @@
                   <i class="fa fa-pencil fa-fw"></i><a href="backend/slider/edit?id={{$item->id}}&type={{ @$_GET['type'] }}">Edit</a>
                 </td>
                 <td class="text-center">
-                  <i class="fa fa-trash-o fa-fw"></i><a onClick="if(!confirm('Xác nhận xóa')) return false;" href="admin/slider/{{$item->id}}/delete?type={{ @$_GET['type'] }}">Delete</a>
+                  <i class="fa fa-trash-o fa-fw"></i><a onClick="if(!confirm('Xác nhận xóa')) return false;" href="backend/slider/{{$item->id}}/delete?type={{ @$_GET['type'] }}">Delete</a>
                 </td>
               </tr>
               @endforeach
