@@ -38,6 +38,7 @@
 										<div class="form-group">
 											<img src="{{ asset('upload/product/'.$data->photo) }}" onerror="this.src='{{asset('public/admin_assets/images/no-image.jpg')}}'" width="200"  alt="NO PHOTO" />
 											<input type="hidden" name="img_current" value="{!! @$data->photo !!}">
+											<!-- <a href="{!! asset('backend/product/edit?id='.$id.'&type='.@$_GET['type'].'&delete_bg='.@$data->photo) !!}" class="img_bg"><img src="{!! asset('public/admin_assets/images/del.png') !!}" alt="Xóa hình"></a> -->
 										</div>
 										<label for="file">Chọn File ảnh</label>
 								     	<input type="file" id="file" name="fImages" >
