@@ -88,13 +88,11 @@
 
                         <div class="vk-shop-detail__brief">
                             <h1 class="vk-shop-detail__title vk-page__heading text-uppercase">{{$product_detail->name}}</h1>
-                            <div class="vk-shop-detail__rate vk-rate vk-text--yellow-1">
+                            <div class="vk-rate vk-text--yellow-1">
+                                @for($i=0; $i< ($product_detail->ratepoint); $i++)
                                 <span class="vk-rate__item"><i class="fa fa-star"></i></span>
-                                <span class="vk-rate__item"><i class="fa fa-star"></i></span>
-                                <span class="vk-rate__item"><i class="fa fa-star"></i></span>
-                                <span class="vk-rate__item"><i class="fa fa-star"></i></span>
-                                <span class="vk-rate__item"><i class="fa fa-star"></i></span>
-                            </div> <!--./rate-->
+                                @endfor
+                            </div><!--./rate-->
                             <p>
                                 {!! $product_detail->mota !!}
                             </p>
@@ -161,28 +159,22 @@
                                     <img src="{{asset('upload/product/'.$item->photo)}}" alt="{{$item->name}}" class="vk-img__img">
                                 </a>
                             </div>
-
                             <div class="vk-shop-item__brief">
                                 <h3 class="vk-shop-item__title"><a href="{{url('san-pham/'.$item->alias.'.html')}}" title="{{$item->name}}">{{$item->name}}</a></h3>
-
                                 <div class="vk-rate vk-text--yellow-1">
+                                    @for($i=0; $i< ($item->ratepoint); $i++)
                                     <span class="vk-rate__item"><i class="fa fa-star"></i></span>
-                                    <span class="vk-rate__item"><i class="fa fa-star"></i></span>
-                                    <span class="vk-rate__item"><i class="fa fa-star"></i></span>
-                                    <span class="vk-rate__item"><i class="fa fa-star"></i></span>
-                                    <span class="vk-rate__item"><i class="fa fa-star"></i></span>
+                                    @endfor
                                 </div> <!--./rate-->
                             </div>
                         </div> <!--./vk-shop-item-->
                     </div>
                     @endforeach
-
                 </div>
             </div> <!--./shop-related-->
 
         </div> <!--./container-->
     </div><!--./page-->
-
     <div class="vk-partner animation fadeIn">
 
         <div class="container">
@@ -196,15 +188,47 @@
                         </div>
                     </div>
                 </div>
-                @endforeach
-                
+                @endforeach  
             </div>
         </div><!-- /.container -->
     </div> <!--./partner-->
-
     <div class="vk-map">
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3725.5858091078217!2d105.86899801486167!3d20.96914219518686!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135ac25be4ca5e3%3A0xe81d88694b0116b9!2zWcOqbiBEdXnDqm4sIFnDqm4gU-G7nywgSG_DoG5nIE1haSwgSMOgIE7hu5lpLCBWaWV0bmFt!5e0!3m2!1sen!2s!4v1509524787964" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+       {!! $setting->iframemap !!}
     </div>
 
 </section>
+<script>
+    $('[data-slider="shop-related"]').slick({
+            arrows:false,
+            swipeToSlide:true,
+            slidesToShow: 4,
+            // autoplay:true,
+            infinite:false,
+
+            responsive: [
+                {
+                    breakpoint: 992,
+                    settings: {
+                        slidesToShow: 3,
+                        arrows: false
+                    }
+                },
+                {
+                    breakpoint: 768,
+                    settings: {
+                        slidesToShow: 2,
+                        arrows: false
+                    }
+                },
+                {
+                    breakpoint: 567,
+                    settings: {
+                        slidesToShow: 1,
+                        arrows: false
+
+                    }
+                }
+            ],
+        })
+</script>
 @endsection

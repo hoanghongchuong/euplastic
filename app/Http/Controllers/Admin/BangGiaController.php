@@ -17,17 +17,17 @@ class BangGiaController extends Controller
     	return view('admin.banggia.create', compact('data'));
     }
     public function postAdd(UploadFileRequest $req){
-    	if($req->hasFile('fileTest')){
+    	if($req->hasFile('filesTest')){
         	$file_name = $req->file('filesTest');
             $file_names = time().'_'.$file_name->getClientOriginalName();
+            $fileName = changeTitle($file_names).'.'.$file_name->getClientOriginalExtension();
         }
-        // $fileName = changeTitle($file_names).'.'.$file_names->getClientOriginalExtension();
     	$data = new BangGia();
     	$data->name = $req->txtName;
     	$data->content = $req->content;
-        if(!empty($file_names)){
-        	$data->doc = $file_names;
-        	$req->file('filesTest')->move('upload/document/', $file_names);
+        if(!empty($fileName)){
+        	$data->doc = $fileName;
+        	$req->file('filesTest')->move('upload/document/', $fileName);
         }
     	if($req->txtAlias){
             $data->alias = $req->txtAlias;

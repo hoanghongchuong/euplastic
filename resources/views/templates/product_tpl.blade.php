@@ -60,12 +60,10 @@
                             <h3 class="vk-shop-item__title"><a href="{{url('san-pham/'.$product->alias.'.html')}}" title="{{$product->name}}">{{$product->name}}</a></h3>
 
                             <div class="vk-rate vk-text--yellow-1">
+                                @for($i=0; $i< ($product->ratepoint); $i++)
                                 <span class="vk-rate__item"><i class="fa fa-star"></i></span>
-                                <span class="vk-rate__item"><i class="fa fa-star"></i></span>
-                                <span class="vk-rate__item"><i class="fa fa-star"></i></span>
-                                <span class="vk-rate__item"><i class="fa fa-star"></i></span>
-                                <span class="vk-rate__item"><i class="fa fa-star"></i></span>
-                            </div> <!--./rate-->
+                                @endfor
+                            </div><!--./rate-->
                         </div>
                     </div> <!--./vk-shop-item-->
                 </div>

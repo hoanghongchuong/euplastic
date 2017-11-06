@@ -108,7 +108,10 @@
 									<input id="btnAdd"  class="add-properties" type="button" value="Add" />
 
 								</div>
-
+								<div class="form-group">
+									<label for="desc">Đánh giá </label>
+							      	<input type="number" name="ratedpoint" max="4" min="0" placeholder="Nhập số sao đánh giá" id="" class="form-control"></input>
+								</div>
 								<div class="form-group">
 							      	<label for="desc">Mô tả</label>
 							      	<textarea name="txtDesc" rows="5" id="txtContent" class="form-control"></textarea>

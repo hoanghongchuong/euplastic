@@ -53,12 +53,10 @@
                         <h3 class="vk-shop-item__title"><a href="{{url('san-pham/'.$product->alias.'.html')}}" title="Cút ren ngoài">{{$product->name}}</a></h3>
 
                         <div class="vk-rate vk-text--yellow-1">
+                            @for($i=0; $i< ($product->ratepoint); $i++)
                             <span class="vk-rate__item"><i class="fa fa-star"></i></span>
-                            <span class="vk-rate__item"><i class="fa fa-star"></i></span>
-                            <span class="vk-rate__item"><i class="fa fa-star"></i></span>
-                            <span class="vk-rate__item"><i class="fa fa-star"></i></span>
-                            <span class="vk-rate__item"><i class="fa fa-star"></i></span>
-                        </div> <!--./rate-->
+                            @endfor
+                        </div><!--./rate-->
                     </div>
                 </div> <!--./vk-shop-item-->
             </div>
@@ -102,4 +100,38 @@
     </div>
 
 </section>
+<script>
+    $('[data-slider="partner"]').slick({
+            nextArrow: '<button  class="vk-btn vk-slider__arrow vk-slider__arrow--next"><img src="{{asset('public/images/icon/arrow-right-3.png')}}"></button>',
+            prevArrow: '<button  class="vk-btn vk-slider__arrow vk-slider__arrow--prev"><img src="{{asset('public/images/icon/arrow-left-3.png')}}"></button>',
+            slidesToShow: 5,
+            swipeToSlide:true,
+            autoplay:true,
+
+            responsive: [
+                {
+                    breakpoint: 992,
+                    settings: {
+                        slidesToShow: 3,
+                        arrows: false
+                    }
+                },
+                {
+                    breakpoint: 768,
+                    settings: {
+                        slidesToShow: 2,
+                        arrows: false
+                    }
+                },
+                {
+                    breakpoint: 567,
+                    settings: {
+                        slidesToShow: 1,
+                        arrows: false
+
+                    }
+                }
+            ],
+        })
+</script>
 @endsection

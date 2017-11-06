@@ -56,12 +56,10 @@ $banner = DB::table('banner_content')->where('position',1)->get();
                                 <h3 class="vk-shop-item__title"><a href="{{url('san-pham/'.$hotProduct->alias.'.html')}}" title="{{$hotProduct->name}}">{{$hotProduct->name}}</a></h3>
 
                                 <div class="vk-rate vk-text--yellow-1">
-                                    <span class="vk-rate__item"><i class="fa fa-star"></i></span>
-                                    <span class="vk-rate__item"><i class="fa fa-star"></i></span>
-                                    <span class="vk-rate__item"><i class="fa fa-star"></i></span>
-                                    <span class="vk-rate__item"><i class="fa fa-star"></i></span>
-                                    <span class="vk-rate__item"><i class="fa fa-star"></i></span>
-                                </div> <!--./rate-->
+                                @for($i=0; $i< ($hotProduct->ratepoint); $i++)
+                                <span class="vk-rate__item"><i class="fa fa-star"></i></span>
+                                @endfor
+                            </div><!--./rate-->
                             </div>
                         </div> <!--./vk-shop-item-->
                     </div>
@@ -78,13 +76,7 @@ $banner = DB::table('banner_content')->where('position',1)->get();
                     <div class="col-lg-3 _item">
                         <div class="vk-about-item animation fadeInLeft delay1">
                             <div class="vk-about-item__icon">
-                                
-                                <svg
-                                        xmlns="http://www.w3.org/2000/svg"
-                                        xmlns:xlink="http://www.w3.org/1999/xlink"
-                                        width="58px" height="58px">
-                                    <image  x="0px" y="0px" width="58px" height="58px"  xlink:href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAADoAAAA6CAQAAABLsoKjAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAAmJLR0QA/4ePzL8AAAAHdElNRQfhChsOGQxETGKBAAAEpElEQVRYw62Yf0xVVRzAP++KxpUUxZxpUsuArAGN0crpQFi2Nn+0WrGFyy1XBJtTogZpW1ZuSfSwdKsk7T/nS7HFCtnaY7SYSZLgACUwjVTI0OKR4OMlAa8/nhfue+/ce899j+9f93zP93w/5/u9957zPccxgrQopPAIaSSzhDuJBW7hxcNFztJBNzdFg1SBLkYKF0sW61nNcu4wsPDzO6f4lno81u4clpEuYhObeVgyG30c4yBd5pGaQxMo5hWWSAI18eLCyYXIoHnsJskmUJNBKviI/+xBE6hkc4RATU6wlXZ5aDqHSY0SCXCDQvVouFoRmK7BPS1IiMfle00m0ly+YY6UywnhlMOlRN1rHmkWNZLIW2xlSMryY1+JGfRBqomXyxxuPqNG0naPb6O+qU/vXH4gQ9IN5NBIKqeJlbL2kqO2iCKttIF00wick441jirf5PSmoBsokEb62T050THJMZns0B619M6lhWRpaANrJp+ryZMcNcJjaqc+0i02kLBH9+yUjnU2O/WRLqDDxrLeRBYTuvZx1kmOHOVxtU2LNM/WTlIehAQnfsmRs9imRRrDTzwqjWxmZQgU6lgrOXqYVPWKAmSQGUWcAO9LxzqHDYH0rsUhjXRTK9A2US3t4elAehvJNjEaw8MfXOU8F+mlyaAGimcViSSTwmLuZR6zDP0NstwxspiusPW2Bw99nKePC/RyDY90+gAWsJBEkkgkiftICKs+1sWQIljij7HdBiRUBhigm/rbre2Uh/RnKKQJhpVRFgVULwXsCtOlKzwgMHVQEVWsmhTxOTPDtPcr3G0woJx3o0QWs1/4X8wzhsI7k3tJJFLKXoMehyIIf0p2BC3tdmQnHxp3WpVWr/OJjaVDk128Z9Ydw7iFgy3MpNAWssLq21e4aunkVQ4wQxpZbvm7TShcl3BUwNuSyG0Sv9o/ina6shDZo2KahM0lhU4pZz9LQk9J2LQpdEvV6XJTk7NrU/iTc5Zmo/wmCe2xPP57aFWABktX/fRJQgfosbBoUa8rQK2gAAmdv+wlzLjlh3k8sCKdodXCsEugU8gQ1gfmb/UmtQHoOFUW0PC3/iQNtNLIszahdeolbe39iiumpsGOVlGHmxwcrOBrvuepoN4ek5fl59NAkgCGDLchgGHdt5vBlzQGVbm5fEcNKybbvfxl6KlWPTEFhQP8Ymh6mX4AlrGfJl4QrMPP8COHeAiAQcOs/astphrUy5uG0C7GuIcPOE2R4RF4Bi/SzD6WAWcNbJxqR+BBfxL/gpeFxlX08AaLkJFB9jGfYkFPBytVbzh0PidvpyhYRk1KZ5GMCa45feSqzVpDXzkMks+AwIk9pPhmtXAKGVqutLNRfGsbpZSqh/TN0BrJzXPTji1TK4MV4YWZm+f5e9qAfkpVZ6hSfCGZiYuUaUAOU6S6wtXiErSVbI5EjTxJDi5Rh1Hde4188i33RmO5wVs8wRlxp/l1+l2UUMBCm8ARjuCkO9Cwf4cPsJSX2CT9hvs5ykH9rhQZFCCO1awnmxSTk89lmqijPrSOjhwakBiSSSedJJYymzj8jDGEh1/ppJ1uhkWDRND/AelTMpjzCL8oAAAAAElFTkSuQmCC" />
-                                </svg>
+                                <img src="{{asset('upload/hinhanh/'.$slogan->photo)}}">
                             </div>
                             <div class="vk-about-item__brief">
                                 <h3 class="vk-about-item__title">{{$slogan->name}}</h3>
@@ -159,5 +151,38 @@ $banner = DB::table('banner_content')->where('position',1)->get();
     </div>
 
 </section>
+<script>
+    $('[data-slider="partner"]').slick({
+            nextArrow: '<button  class="vk-btn vk-slider__arrow vk-slider__arrow--next"><img src="{{asset('public/images/icon/arrow-right-3.png')}}"></button>',
+            prevArrow: '<button  class="vk-btn vk-slider__arrow vk-slider__arrow--prev"><img src="{{asset('public/images/icon/arrow-left-3.png')}}"></button>',
+            slidesToShow: 5,
+            swipeToSlide:true,
+            autoplay:true,
 
+            responsive: [
+                {
+                    breakpoint: 992,
+                    settings: {
+                        slidesToShow: 3,
+                        arrows: false
+                    }
+                },
+                {
+                    breakpoint: 768,
+                    settings: {
+                        slidesToShow: 2,
+                        arrows: false
+                    }
+                },
+                {
+                    breakpoint: 567,
+                    settings: {
+                        slidesToShow: 1,
+                        arrows: false
+
+                    }
+                }
+            ],
+        })
+</script>
 @endsection

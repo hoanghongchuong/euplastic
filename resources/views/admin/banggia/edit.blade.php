@@ -53,6 +53,9 @@
                     <label for="file">Chọn file</label>
                       <input type="file" id="file" name="filesTest" >
                       <p style="color: ">(dung lượng file không vượt quá 10MB)</p>
+                       @if ($errors->first('filesTest')!='')
+                      <label class="control-label" for="inputError"><i class="fa fa-times-circle-o"></i> {!! $errors->first('filesTest7sadasadsda'); !!}</label>
+                      @endif
                   </div>
               </div>
               </div>

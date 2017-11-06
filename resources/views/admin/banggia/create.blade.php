@@ -43,10 +43,12 @@
                     @endif
               </div>
               <div class="form-group">
-                 
                       <input type="file" name="filesTest">
                       <!-- <br/> -->
                       <p style="color:">dung lượng file không vượt quá 10MB</p>
+                      @if ($errors->first('filesTest')!='')
+                    <label class="control-label" for="inputError"><i class="fa fa-times-circle-o"></i> {!! $errors->first('filesTest7sadasadsda'); !!}</label>
+                    @endif
                       <!-- <input type="submit" value="upload"> -->
                   
               </div>

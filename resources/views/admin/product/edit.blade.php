@@ -106,7 +106,10 @@
 										</div>
 										@endfor
 										<input id="btnAdd"  class="add-properties" type="button" value="Add" />
-
+									</div>
+									<div class="form-group">
+										<label for="desc">Đánh giá </label>
+								      	<input type="number" name="ratedpoint" value="{{$data->ratepoint}}" max="4" min="0" placeholder="Nhập số sao đánh giá"  id="" class="form-control"></input>
 									</div>
 									<!-- <div class="form-group">
 								      	<label for="ten">Giảm giá</label>
@@ -256,7 +259,7 @@
 			    	<div class="row">
 						<div class="col-md-6">
 					    	<button type="submit" class="btn btn-primary">Cập nhật</button>
-					    	<button type="button" class="btn btn-danger" onclick="javascript:window.location='admin/product'">Thoát</button>
+					    	<button type="button" class="btn btn-danger" onclick="javascript:window.location='backend/product'">Thoát</button>
 				    	</div>
 			    	</div>
 			  	</div>

@@ -525,38 +525,38 @@ var Slider = function () {
 
 
 
-        $('[data-slider="shop-related"]').slick({
-            arrows:false,
-            swipeToSlide:true,
-            slidesToShow: 4,
-            // autoplay:true,
-            infinite:false,
+        // $('[data-slider="shop-related"]').slick({
+        //     arrows:false,
+        //     swipeToSlide:true,
+        //     slidesToShow: 4,
+        //     // autoplay:true,
+        //     infinite:false,
 
-            responsive: [
-                {
-                    breakpoint: 992,
-                    settings: {
-                        slidesToShow: 3,
-                        arrows: false
-                    }
-                },
-                {
-                    breakpoint: 768,
-                    settings: {
-                        slidesToShow: 2,
-                        arrows: false
-                    }
-                },
-                {
-                    breakpoint: 567,
-                    settings: {
-                        slidesToShow: 1,
-                        arrows: false
+        //     responsive: [
+        //         {
+        //             breakpoint: 992,
+        //             settings: {
+        //                 slidesToShow: 3,
+        //                 arrows: false
+        //             }
+        //         },
+        //         {
+        //             breakpoint: 768,
+        //             settings: {
+        //                 slidesToShow: 2,
+        //                 arrows: false
+        //             }
+        //         },
+        //         {
+        //             breakpoint: 567,
+        //             settings: {
+        //                 slidesToShow: 1,
+        //                 arrows: false
 
-                    }
-                }
-            ],
-        })
+        //             }
+        //         }
+        //     ],
+        // })
 
         $('[data-slider="news"]').slick({
             nextArrow: '<button  class="vk-btn vk-slider__arrow vk-slider__arrow--next"><img src="images/icon/arrow-right-2.png"></button>',
@@ -597,38 +597,38 @@ var Slider = function () {
             ],
         })
 
-        $('[data-slider="partner"]').slick({
-            nextArrow: '<button  class="vk-btn vk-slider__arrow vk-slider__arrow--next"><img src="images/icon/arrow-right-3.png"></button>',
-            prevArrow: '<button  class="vk-btn vk-slider__arrow vk-slider__arrow--prev"><img src="images/icon/arrow-left-3.png"></button>',
-            slidesToShow: 6,
-            swipeToSlide:true,
-            autoplay:true,
+        // $('[data-slider="partner"]').slick({
+        //     nextArrow: '<button  class="vk-btn vk-slider__arrow vk-slider__arrow--next"><img src="images/icon/arrow-right-3.png"></button>',
+        //     prevArrow: '<button  class="vk-btn vk-slider__arrow vk-slider__arrow--prev"><img src="images/icon/arrow-left-3.png"></button>',
+        //     slidesToShow: 6,
+        //     swipeToSlide:true,
+        //     autoplay:true,
 
-            responsive: [
-                {
-                    breakpoint: 992,
-                    settings: {
-                        slidesToShow: 3,
-                        arrows: false
-                    }
-                },
-                {
-                    breakpoint: 768,
-                    settings: {
-                        slidesToShow: 2,
-                        arrows: false
-                    }
-                },
-                {
-                    breakpoint: 567,
-                    settings: {
-                        slidesToShow: 1,
-                        arrows: false
+        //     responsive: [
+        //         {
+        //             breakpoint: 992,
+        //             settings: {
+        //                 slidesToShow: 3,
+        //                 arrows: false
+        //             }
+        //         },
+        //         {
+        //             breakpoint: 768,
+        //             settings: {
+        //                 slidesToShow: 2,
+        //                 arrows: false
+        //             }
+        //         },
+        //         {
+        //             breakpoint: 567,
+        //             settings: {
+        //                 slidesToShow: 1,
+        //                 arrows: false
 
-                    }
-                }
-            ],
-        })
+        //             }
+        //         }
+        //     ],
+        // })
 
     };
 
