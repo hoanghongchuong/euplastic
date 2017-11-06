@@ -96,7 +96,6 @@
 								      	@endif
 									</div>
 									@endif -->
-
 									
 								</div>
 								<input type="hidden" name="txtCom" value="{{ @$_GET['type'] }}"/>
