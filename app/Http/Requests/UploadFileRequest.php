@@ -26,18 +26,18 @@ class UploadFileRequest extends FormRequest
         return [
             'txtName' => 'required|min:2|max:100',
             'txtAlias' => 'required',
-            
+            'filesTest' => 'max:10240',
         ];
     }
     public function messages()
     {
         return [
             'txtName.required' => 'Bạn chưa nhập tên ',
-            'txtName.unique' => 'Tên bài viết bị trùng, mời nhập lại',
+            // 'txtName.unique' => 'Tên bài viết bị trùng, mời nhập lại',
             'txtName.min' => 'Tên phải có đội dài từ 2 đến 100 ký tự',
             'txtName.max' => 'Tên phải có đội dài từ 2 đến 100 ký tự',
             'txtAlias.required' => 'Bạn chưa nhập liên kết bài viết',
-            
+            'filesTest.max' => 'Dung lượng file không vượt quá 2MB'
         ];
     }
 }

@@ -9,7 +9,7 @@
             <nav class="vk-footer__nav">
                 <ul class="vk-list vk-list--inline vk-menu__footer">
                     <li class="vk-list__item"><a href="{{url('')}}" title=""><i class="fa fa-home" style="font-size: 18px;"> </i>&nbsp; Trang chủ</a></li>
-                    <li class="vk-list__item"><a href="{{url('gioi-thieu')}}" title="">Giới thiệu</a></li>
+                    <!-- <li class="vk-list__item"><a href="{{url('gioi-thieu')}}" title="">Giới thiệu</a></li> -->
                     <li class="vk-list__item"><a href="{{url('san-pham')}}" title="">Sản phẩm</a></li>
                     <li class="vk-list__item"><a href="{{url('bang-gia')}}" title="">Bảng giá</a></li>
                     <li class="vk-list__item"><a href="{{url('chung-chi-ki-thuat')}}" title="">Chứng chỉ kĩ thuật</a></li>
@@ -51,9 +51,12 @@
             <div class="vk-footer__col d-none d-lg-block col-lg-2">
                 <h3 class="vk-footer__title">THÔNG TIN</h3>
                 <ul class="vk-list vk-list--style-1">
-                    <li class="vk-list__item"><a href="price-table.html" title="">Bảng giá sản phẩm</a></li>
-                    <li class="vk-list__item"><a href="price-table.html" title="">Bảng giá máy hàn</a></li>
-                    <li class="vk-list__item"><a href="certify.html" title="">Chứng chỉ</a></li>
+                    
+                    <?php $banggias = DB::table('banggia')->get(); ?>
+                    @foreach($banggias as $banggia)
+                        <li class="vk-list__item"><a href="{{url('bang-gia/'.$banggia->alias.'.html')}}" title="">{{$banggia->name}}</a></li>
+                    @endforeach
+                    <li class="vk-list__item"><a href="{{url('chung-chi-ki-thuat')}}" title="">Chứng chỉ</a></li>
                     <li class="vk-list__item"><a href="#" title="">Tiểu chuẩn</a></li>
                 </ul>
             </div>

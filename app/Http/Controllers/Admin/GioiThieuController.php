@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests\GioithieuRequest;
 use App\Http\Controllers\Controller;
 use App\GioiThieu;
+use File;
 class GioiThieuController extends Controller
 {
     public function index(){
@@ -17,6 +18,13 @@ class GioiThieuController extends Controller
     	return view('admin.gioithieu.add');
     }
     public function postAdd(GioithieuRequest $request){
+        $img = $request->file('fImages');
+        $path_img='upload/banner';
+        $img_name='';
+        if(!empty($img)){
+            $img_name=time().'_'.$img->getClientOriginalName();
+            $img->move($path_img,$img_name);
+        }
     	$data = new GioiThieu;
     	$data->name = $request->txtName;
     	 if($request->txtAlias){
@@ -24,6 +32,7 @@ class GioiThieuController extends Controller
         }else{
             $data->alias = changeTitle($request->txtName);
         }
+        $data->image = $img_name; 
         $data->mota = $request->txtDesc;
         $data->content = $request->txtContent;
         $data->title = $request->txtTitle;
@@ -43,6 +52,17 @@ class GioiThieuController extends Controller
     }
     public function postEdit(Request $request, $id){
     	$data = GioiThieu::where('id',$id)->first();
+        $img = $request->file('fImages');
+        $img_current = 'upload/banner/'.$request->img_current;
+        if(!empty($img)){
+            $path_img='upload/banner';
+            $img_name=time().'_'.$img->getClientOriginalName();
+            $img->move($path_img,$img_name);
+            $data->image = $img_name;
+            if (File::exists($img_current)) {
+                File::delete($img_current);
+            }
+        }
         $data->name = $request->txtName;
         if($request->txtAlias){
                 $data->alias = $request->txtAlias;

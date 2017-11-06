@@ -243,6 +243,14 @@ Route::group(['middleware' =>'authen', 'prefix' => 'backend'], function(){
 		
 		Route::get('{id}/deleteList',['as'=>'admin.news.getDeleteList','uses'=>'Admin\NewsController@getDeleteList']);
 	});
+	Route::group(['prefix'=>'feedback'], function(){
+		Route::get('/',['as'=>'admin.feedback.index','uses'=>'Admin\FeedbackController@index']);
+		Route::get('add',['as'=>'admin.feedback.create','uses'=>'Admin\FeedbackController@getCreate']);
+		Route::post('add',['as'=>'admin.feedback.postCreate','uses'=>'Admin\FeedbackController@postCreate']);
+		Route::get('edit/{id}',['as'=>'admin.feedback.edit', 'uses'=>'Admin\FeedbackController@getEdit']);
+		Route::post('edit/{id}',['as'=>'admin.feedback.postEdit', 'uses'=>'Admin\FeedbackController@postEdit']);
+		Route::get('delete/{id}',['as'=>'admin.feedback.delete', 'uses' => 'Admin\FeedbackController@delete']);
+	});
 	Route::group(['prefix' => 'about'], function(){
 		Route::get('/','Admin\AboutController@getList')->name('admin.about.getList');
 		Route::get('add','Admin\AboutController@getAdd')->name('admin.about.getAdd');

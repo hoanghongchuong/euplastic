@@ -117,7 +117,7 @@ class IndexController extends Controller {
 	public function getProduct(Request $req)
 	{
 		$cate_pro = DB::table('product_categories')->where('status',1)->where('parent_id',0)->orderby('id','asc')->get();
-		$products = DB::table('products')->select()->where('status',1)->paginate(8);
+		$products = DB::table('products')->select()->where('status',1)->orderBy('id','desc')->paginate(10);
 		// $appends = [];
 		// $selected = $req->sort;
 		// if ($req->sort) {

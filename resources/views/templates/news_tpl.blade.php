@@ -49,15 +49,8 @@
                         @endforeach
                     </div> <!--./list-->
 
-                    <div class="paginations">{!! $tintuc->links() !!}</div>
-                    <!-- <nav class="vk-pagination">
-                        <ul class="vk-list vk-list--inline vk-pagination__list">
-                            <li class="vk-list__item active"><a href="#" title="">1</a></li>
-                            <li class="vk-list__item"><a href="#" title="">2</a></li>
-                            <li class="vk-list__item"><a href="#" title="">3</a></li>
-                            <li class="vk-list__item"><a href="#" title="">4</a></li>
-                        </ul>
-                    </nav> -->
+                    <div class="vk-pagination">{!! $tintuc -> links() !!}</div>
+                    
                     <!--./vk-breadcrumb-->
                 </div><!--./col-->
 

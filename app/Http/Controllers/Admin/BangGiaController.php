@@ -41,7 +41,7 @@ class BangGiaController extends Controller
     	$data = BangGia::findOrFail($id);
     	return view('admin.banggia.edit', compact('data'));
     }
-    public function update(Request $req, $id){
+    public function update(UploadFileRequest $req, $id){
     	$data = BangGia::find($id);
     	$file_name = $file_name = $req->file('filesTest');
     	$file_current = 'upload/document/'.$req->file_current;

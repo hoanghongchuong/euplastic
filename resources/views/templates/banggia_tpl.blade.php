@@ -30,8 +30,7 @@
                     <div class="vk-price-table__box">
                         <h1 class="vk-page__heading">BẢNG GIÁ</h1>
                         <p>
-                           <?php $slogans = DB::table('slogan')->where('id',7)->first(); ?>
-                            {!! $slogans->content !!}
+                           
                         </p>
 
                         <ul class="vk-list vk-list--style-3">

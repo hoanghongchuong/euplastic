@@ -152,8 +152,8 @@
         <!-- <li><a href="backend/contact"><i class="fa fa-envelope"></i> <span>Quản lý liên hệ</span></a></li> -->
         <!-- <li><a href="backend/newsletter?type=newsletter"><i class="fa fa-circle-o"></i> <span>Đăng ký nhận tin</span></a></li> -->
         <!-- <li><a href="backend/lienket?type=gioi-thieu"><i class="fa fa-circle-o"></i> <span>Hình ảnh giới thiệu</span></a></li> -->
-       <!--  <li><a href="backend/lienket?type=tieu-chi"><i class="fa fa-circle-o"></i> <span>Tiêu chí hội viên</span></a></li>
-        <li><a href="backend/slider?type=thu-vien-anh"><i class="fa fa-circle-o"></i> <span>Thư viện ảnh</span></a></li> -->
+        <!-- <li><a href="backend/lienket?type=tieu-chi"><i class="fa fa-circle-o"></i> <span>Tiêu chí hội viên</span></a></li> -->
+        <li><a href="backend/slider?type=thu-vien-anh"><i class="fa fa-circle-o"></i> <span>Thư viện ảnh</span></a></li>
         <!-- <li><a href="backend/slider?type=chinh-sach"><i class="fa fa-circle-o"></i> <span>Quản lý chính sách</span></a></li> -->
         <!-- <li class="treeview">
           <a href="#">
@@ -170,6 +170,7 @@
         </li> -->
         <li><a href="backend/chinhanh"><i class="fa fa-envelope"></i><span>Quản lý chi nhánh</span></a></li>
         <li><a href="backend/slogan"><i class="fa fa-gear" aria-hidden="true"></i> <span>Quản lý slogan</span></a></li>
+        <li><a href="backend/feedback"><i class="fa fa-gear" aria-hidden="true"></i> <span>Ý kiến khách hàng</span></a></li>
         <li><a href="backend/slider?type=gioi-thieu"><i class="fa fa-circle-o"></i> <span>Quản lý slider</span></a></li>
         
         <!-- <li class="treeview">

@@ -20,7 +20,7 @@
     <div class="box">
     	@include('admin.messages_error')
         <div class="box-body">
-        	<form method="post" action="backend/gioithieu/edit/{{$data->id}}">
+        	<form method="post" action="backend/gioithieu/edit/{{$data->id}}" enctype="multipart/form-data">
         		<input type="hidden" name="_token" value="{!! csrf_token() !!}" />
         		
       			<div class="nav-tabs-custom">
@@ -33,6 +33,17 @@
 	                <div class="tab-content">
 	                  	<div class="tab-pane active" id="tab_1">
 	                  		<div class="row">
+	                  			<div class="form-group @if ($errors->first('fImages')!='') has-error @endif">
+					                <div class="form-group" >
+					                  <div class="form-group">
+					                    <img src="{{ asset('upload/banner/'.@$data->image) }}" onerror="this.src='{{asset('public/admin_assets/images/no-image.jpg')}}'" width="200"  alt="NO PHOTO" />
+					                    <input type="hidden" name="img_current" value="{!! @$data->image !!}">
+					                  </div>
+					                  <label for="file">Chọn File ảnh</label>
+					                    <input type="file" id="file" name="fImages" >
+					                    <p class="help-block">Width:225px - Height: 162px</p>
+					                </div>
+					            </div>
 		                  		<div class="col-md-6 col-xs-12">
 							    	<div class="form-group">
 								      	<label for="ten">Tên</label>

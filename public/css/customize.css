@@ -1,0 +1,31 @@
+.vk-pagination ul{
+	position: relative;
+	display: inline-block;
+    vertical-align: top;
+}
+.vk-pagination ul li{
+	float: left;
+	padding: 0 5px;
+}
+.vk-pagination ul li a, .vk-pagination ul li span{
+	background-color: #ebebeb;
+    color: #000;
+    display: flex;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    -webkit-box-align: center;
+        align-items: center;
+    -webkit-box-pack: center;
+        justify-content: center;
+    font-weight: bold;
+    font-size: 16px;
+}
+.vk-pagination ul li a:hover{
+	background-color: #1b5a65;
+	color: #fff;
+}
+.vk-pagination ul li.active span{
+	background-color: #1b5a65;
+	color: #fff;
+}

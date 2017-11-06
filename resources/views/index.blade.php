@@ -45,23 +45,22 @@
     <link href="{{asset('public/css/style.css')}}" rel="stylesheet" />
     <link href="{{asset('public/css/customize.css')}}" rel="stylesheet" />
     <script src="{{asset('public/plugin/plugin.min.js')}}"></script>
-    
     <script src="{{asset('public/plugin/owl/owl.carousel.js')}}"></script>
     
 </head>
 <body>
     
-   <div id="animsition main-wrapper">
+   <div id="animsition main-wrapper" class="animsition">
        <div class="vk-menu__anchor d-none d-xl-block" id="introMenu">
-        <ul class="vk-list">
-            <li  class="vk-list__item"><a href="{{url('')}}" title="Trang chủ" data-toggle="tooltip" data-placement="left"><i class="fa fa-home"></i></a></li>
-            <li  class="vk-list__item facebook"><a href="{{$setting->facebook}}" title="Facebook" data-toggle="tooltip" data-placement="left"><i class="fa fa-facebook"></i></a></li>
-            <li  class="vk-list__item youtube"><a href="{{$setting->youtube}}" title="Youtube" data-toggle="tooltip" data-placement="left"><i class="fa fa-youtube-play"></i></a></li>
-            <li  class="vk-list__item twitter"><a href="{{$setting->twitter}}" title="Twitter" data-toggle="tooltip" data-placement="left"><i class="fa fa-twitter"></i></a></li>
-            <li  class="vk-list__item skype"><a href="{{$setting->skype}}" title="Skype" data-toggle="tooltip" data-placement="left"><i class="fa fa-skype"></i></a></li>
-            <li  class="vk-list__item google-plus"><a href="{{$setting->google}}" title="Google plus" data-toggle="tooltip" data-placement="left"><i class="fa fa-google-plus"></i></a></li>
-        </ul>
-    </div>
+            <ul class="vk-list">
+                <li  class="vk-list__item"><a href="{{url('')}}" title="Trang chủ" data-toggle="tooltip" data-placement="left"><i class="fa fa-home"></i></a></li>
+                <li  class="vk-list__item facebook"><a href="{{$setting->facebook}}" title="Facebook" data-toggle="tooltip" data-placement="left"><i class="fa fa-facebook"></i></a></li>
+                <li  class="vk-list__item youtube"><a href="{{$setting->youtube}}" title="Youtube" data-toggle="tooltip" data-placement="left"><i class="fa fa-youtube-play"></i></a></li>
+                <li  class="vk-list__item twitter"><a href="{{$setting->twitter}}" title="Twitter" data-toggle="tooltip" data-placement="left"><i class="fa fa-twitter"></i></a></li>
+                <li  class="vk-list__item skype"><a href="{{$setting->skype}}" title="Skype" data-toggle="tooltip" data-placement="left"><i class="fa fa-skype"></i></a></li>
+                <li  class="vk-list__item google-plus"><a href="{{$setting->google}}" title="Google plus" data-toggle="tooltip" data-placement="left"><i class="fa fa-google-plus"></i></a></li>
+            </ul>
+        </div>
             @include('templates.layout.header')
             @yield('content')
             @include('templates.layout.footer')

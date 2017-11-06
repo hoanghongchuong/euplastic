@@ -1,4 +1,4 @@
-@extends('index')
+    @extends('index')
 @section('content')
 
 <?php
@@ -14,24 +14,23 @@ $banner = DB::table('banner_content')->where('position',1)->get();
         <div class="vk-home__about">
             <div class="container">
                 <div class="row">
+                    <?php $gt = DB::table('gioithieu')->where('status',1)->first(); ?>
                     <div class="col-lg-6">
                         <div class="vk-about__left d-none d-lg-block ">
                             <div class="vk-img animation fadeInLeft">
-                                <img src="{{asset('public/images/home/home-1.png')}}" alt="">
+                                <img src="{{asset('upload/banner/'.$gt->image)}}" alt="">
                             </div>
                         </div>
                     </div> <!--./col-->
 
                     <div class="col-lg-6">
                         <div class="vk-about__right">
-                            <h3 class="vk-about__title text-uppercase animation fadeIn">Công ty TNHH sản xuất nhựa Châu Âu</h3>
+                            <!-- <h3 class="vk-about__title text-uppercase animation fadeIn">Công ty TNHH sản xuất nhựa Châu Âu</h3> -->
                             <p class="animation fadeIn delay1">
-                                Bên cạnh việc sản xuất, chúng tôi còn nhập khẩu và phân phối các sản phẩm như: phụ kiện
-                                HDPE hàn nối đầu, phụ kiện HDPE hàn điện trở, các loại máy hàn ống nhựa HDPE, máy thử áp
-                                lực…
+                               {!! $gt->mota !!}
                             </p>
                             <div class="vk-button animation fadeIn delay2" >
-                                <a href="about.html" title="" class="vk-btn vk-btn--green-1 vk-btn--rounded">Xem thêm</a>
+                                <a href="{{url('gioi-thieu/'.$gt->alias)}}" title="" class="vk-btn vk-btn--green-1 vk-btn--rounded">Xem thêm</a>
                             </div>
                         </div>
                     </div> <!--./col-->
@@ -97,13 +96,15 @@ $banner = DB::table('banner_content')->where('position',1)->get();
                 </div>
 
                 <div class="vk-about__slogan animation fadeIn">
+
                     <p class="vk-about__quote">
+                        <?php $feedback = DB::table('feedback')->first(); ?>
                         <i class="_icon fa fa-quote-left"></i> &nbsp;
-                        Chúng tôi mong muốn luôn được là đối tác tin cậy, uy tín của Quý khách hàng và kính mong được hợp
-                        tác cùng Quý khách hàng trong thời gian gần nhất.
+                        {!! $feedback->content !!}
                         &nbsp; <i class="_icon fa fa-quote-right"></i>
                     </p>
-                    <p class="vk-about__author">-- Mr Leee --</p>
+
+                    <p class="vk-about__author">-- {{$feedback->name}} --</p>
                 </div>
             </div><!-- /.container -->
         </div> <!--./about-1-->

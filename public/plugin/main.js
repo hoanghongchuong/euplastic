@@ -487,23 +487,24 @@ var Slider = function () {
 
     var shopSlider = function () {
 
-        $('[data-slider="banner"]').slick({
-            swipeToSlide:true,
-            slidesToShow: 1,
-            autoplay:true,
-            // nextArrow: '<button  class="vk-btn vk-slider__arrow vk-slider__arrow--next"><img src="images/icon/arrow-right-1.png"></button>',
-            // prevArrow: '<button  class="vk-btn vk-slider__arrow vk-slider__arrow--prev"><img src="images/icon/arrow-left-1.png"></button>',
-            responsive: [
-                {
-                    breakpoint: 768,
-                    settings: {
-                        arrows: false
-                    }
-                }
-            ],
-        })
+        // $('[data-slider="banner"]').slick({
+        //     swipeToSlide:true,
+        //     slidesToShow: 1,
+        //     autoplay:true,
+        //     // nextArrow: '<button  class="vk-btn vk-slider__arrow vk-slider__arrow--next"><img src="images/icon/arrow-right-1.png"></button>',
+        //     // prevArrow: '<button  class="vk-btn vk-slider__arrow vk-slider__arrow--prev"><img src="images/icon/arrow-left-1.png"></button>',
+        //     responsive: [
+        //         {
+        //             breakpoint: 768,
+        //             settings: {
+        //                 arrows: false
+        //             }
+        //         }
+        //     ],
+        // })
 
         var banner = $('[data-slider="banner"]');
+        
         banner.owlCarousel({
             animateOut: 'owl-goDown-out',
             animateIn: 'owl-goDown-in',
