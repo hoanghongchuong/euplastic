@@ -148,10 +148,10 @@
 			    	</label>
 				</div>
 			    <div class="col-md-6">
-			    	<div class="form-group">
+			    	<!-- <div class="form-group">
 					      <label for="ten">Số thứ tự</label>
 					      <input type="number" min="1" name="stt" value="{!! isset($data->status) ? $data->stt : (count($news)+1) !!}" class="form-control" style="width: 100px;">
-				    </div>
+				    </div> -->
 				    
 				    <div class="form-group">
 					    <label>

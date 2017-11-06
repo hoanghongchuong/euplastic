@@ -191,6 +191,7 @@ class IndexController extends Controller {
 			
 			$cateProduct = DB::table('product_categories')->select('name','alias')->where('id',$product_detail->cate_id)->first();
 			$productSameCate = DB::table('products')->select()->where('status',1)->where('alias','<>',$id)->where('cate_id',$product_detail->cate_id)->orderby('stt','desc')->take(8)->get();
+			// dd($productSameCate);
 			$setting = Cache::get('setting');
 			$tintucs = DB::table('news')->orderBy('id','desc')->take(3)->get();
 			// Cấu hình SEO

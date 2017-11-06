@@ -68,12 +68,13 @@
         
    </div>
    
-    {{ $setting->codechat }}
+    {!! $setting->codechat !!}
     {{ $setting->analytics }}
     @yield('script')
     <!-- BEGIN: SCRIPT -->
     <script src="{{asset('public/plugin/main.js')}}"></script>
     <script src="{{asset('public/plugin/custom.js')}}"></script>
+
 <!-- END: SCRIPT -->
 </body>
 </html>

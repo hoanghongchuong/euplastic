@@ -95,11 +95,11 @@
     </div>
 </div>
 
-<div class="vk-footer__chat d-none d-lg-block">
+<!-- <div class="vk-footer__chat d-none d-lg-block">
     <div class="vk-img vk-img-mw-100">
         <img src="https://tpl.gco.vn/best-friend/images/trochuyen.png" alt="">
     </div>
-</div>
+</div> -->
 
 <div id="fb-root"></div>
 <script>(function(d, s, id) {

@@ -197,38 +197,5 @@
     </div>
 
 </section>
-<script>
-    $('[data-slider="shop-related"]').slick({
-            arrows:false,
-            swipeToSlide:true,
-            slidesToShow: 4,
-            // autoplay:true,
-            infinite:false,
 
-            responsive: [
-                {
-                    breakpoint: 992,
-                    settings: {
-                        slidesToShow: 3,
-                        arrows: false
-                    }
-                },
-                {
-                    breakpoint: 768,
-                    settings: {
-                        slidesToShow: 2,
-                        arrows: false
-                    }
-                },
-                {
-                    breakpoint: 567,
-                    settings: {
-                        slidesToShow: 1,
-                        arrows: false
-
-                    }
-                }
-            ],
-        })
-</script>
 @endsection

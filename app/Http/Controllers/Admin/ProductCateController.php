@@ -32,7 +32,7 @@ class ProductCateController extends Controller {
             $img->move($path_img,$img_name);
         }
     	$cate = new ProductCate;
-        $cate->parent_id = $request->txtProductCate;
+        // $cate->parent_id = $request->txtProductCate;
         $cate->name = $request->txtName;
         $cate->alias = changeTitle($request->txtName);
         $cate->photo = $img_name;

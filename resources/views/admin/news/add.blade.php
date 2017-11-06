@@ -141,10 +141,10 @@
 				        	Tin hot
 				    	</label>
 					</div>
-			    	<div class="form-group">
+			    	<!-- <div class="form-group">
 					      <label for="ten">Số thứ tự</label>
 					      <input type="number" min="1" name="stt" value="{!! count($data)+1 !!}" class="form-control" style="width: 100px;">
-				    </div>
+				    </div> -->
 				    
 				    <div class="form-group">
 					    <label>
