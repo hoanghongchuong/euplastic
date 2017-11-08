@@ -77,7 +77,7 @@ class LienKetController extends Controller
         }
         $news->user_id = Auth::user()->id;
         $news->save();
-        return redirect('admin/lienket?type='.$com)->with('status','Thêm mới thành công !');
+        return redirect('backend/lienket?type='.$com)->with('status','Thêm mới thành công !');
     }
     /**
      * Show the form for editing the specified resource.
@@ -111,7 +111,7 @@ class LienKetController extends Controller
                     $data->status = 1; 
                 }
                 $data->update();
-                return redirect('admin/lienket?type='.$com)->with('status','Cập nhật thành công !');
+                return redirect('backend/lienket?type='.$com)->with('status','Cập nhật thành công !');
             }
             if($request->get('noibat')>0){
                 if($data->noibat == 1){
@@ -120,13 +120,13 @@ class LienKetController extends Controller
                     $data->noibat = 1; 
                 }
                 $data->update();
-                return redirect('admin/lienket?type='.$com)->with('status','Cập nhật thành công !');
+                return redirect('backend/lienket?type='.$com)->with('status','Cập nhật thành công !');
             }
             $news = LienKet::select('stt')->orderBy('id','asc')->get()->toArray();
             // Gọi view edit.blade.php hiển thị bải viết
             return view('admin.lienket.edit',compact('data','news','id','trang'));
         }else{
-            return redirect('admin/lienket?type='.$com)->with('status','Dữ liệu không có thực !');
+            return redirect('backend/lienket?type='.$com)->with('status','Dữ liệu không có thực !');
         }
         
     }
@@ -177,7 +177,7 @@ class LienKetController extends Controller
             $news->user_id       = Auth::user()->id;
 
             $news->save();
-            return redirect('admin/lienket/edit?id='.$id.'&type='.$com)->with('status','Cập nhật thành công');
+            return redirect('backend/lienket/edit?id='.$id.'&type='.$com)->with('status','Cập nhật thành công');
         }else{
             return redirect()->back()->with('status','Dữ liệu không có thực');
         }
@@ -200,7 +200,7 @@ class LienKetController extends Controller
         $news = LienKet::findOrFail($id);
         $news->delete();
         File::delete('upload/hinhanh/'.$news->photo);
-        return redirect('admin/lienket?type='.$com)->with('status','Xóa thành công');
+        return redirect('backend/lienket?type='.$com)->with('status','Xóa thành công');
     }
     public function getDeleteList($id){
         if($_GET['type']=='slider') $trang='slider';
@@ -222,7 +222,7 @@ class LienKetController extends Controller
             $news->delete();
             File::delete('upload/hinhanh/'.$news->photo);
         }
-        return redirect('admin/lienket?type='.$com)->with('status','Xóa thành công');
+        return redirect('backend/lienket?type='.$com)->with('status','Xóa thành công');
     }
     
 }

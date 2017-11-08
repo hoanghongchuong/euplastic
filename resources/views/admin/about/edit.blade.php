@@ -34,11 +34,13 @@
 	                  	<div class="tab-pane active" id="tab_1">
 	                  		<div class="row">
 		                  		<div class="col-md-6 col-xs-12">
+									@if($_GET['type']=='gioi-thieu')
 							    	<div class="form-group">
 								      	<label for="ten">Tên</label>
 								      	<input type="text" name="txtName" id="txtName" value="{{ @$data->name }}"  class="form-control" />
 									</div>
-									<input type="hidden" name="txtCom" value="{{ old('txtCom', isset($data) ? @$data->com : null) }}">
+									
+									
 									
 									<div class="form-group @if ($errors->first('txtAlias')!='') has-error @endif">
 								      	<label for="alias">Đường dẫn tĩnh</label>
@@ -47,7 +49,9 @@
 								      	<label class="control-label" for="inputError"><i class="fa fa-times-circle-o"></i> {!! $errors->first('txtAlias'); !!}</label>
 								      	@endif
 									</div>
+									@endif
 								</div>
+								<input type="hidden" name="txtCom" value="{{ old('txtCom', isset($data) ? @$data->com : null) }}">
 								<div class="clearfix"></div>
 								@if($_GET['type']=='gioi-thieu')
 								<div class="col-md-12 col-xs-12">

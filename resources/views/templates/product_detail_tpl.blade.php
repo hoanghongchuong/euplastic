@@ -8,7 +8,8 @@
     <div class="vk-breadcrumb">
         <div class="vk-breadcrumb__banner">
             <div class="vk-img vk-img--cover">
-                <img src="{{asset('public/images/banner/banner-1.jpg')}}" alt="" class="">
+                <?php @$q = DB::table('banner_content')->where('position', 5)->first(); ?>
+                <img src="{{asset('upload/banner/'.@$q->image)}}" alt="" class="">
             </div>
         </div>
         <div class="vk-breadcrumb__content">
@@ -23,10 +24,9 @@
         </div>
 
     </div>
-    <!--./vk-breadcrumb-->    
+     
     <div class="vk-page vk-page--shop">
         <div class="container">
-
             <div class="row">
                 <div class="col-lg-9">
 
@@ -55,14 +55,6 @@
                                 
                             </div>
                             <div class="slider-nav vk-slider vk-slider--arrow-style-1">
-
-                                <!-- <div class=" _item">
-                                    <div class="vk-shop-detail-item">
-                                        <div class="vk-img vk-img--mw100 vk-img--scale-14">
-                                            <img src="images/shop/shop-item-1.png" alt="Cút ren ngoài" class="vk-img__img">
-                                        </div>
-                                    </div> 
-                                </div> -->
                                 @if(count($album_hinh)>0)
                                     @foreach($album_hinh as $img)
                                     <div class=" _item">
@@ -84,7 +76,7 @@
                                 @endif
 
                             </div>
-                        </div> <!--./thumbnail-->
+                        </div> 
 
                         <div class="vk-shop-detail__brief">
                             <h1 class="vk-shop-detail__title vk-page__heading text-uppercase">{{$product_detail->name}}</h1>
@@ -92,7 +84,7 @@
                                 @for($i=0; $i< ($product_detail->ratepoint); $i++)
                                 <span class="vk-rate__item"><i class="fa fa-star"></i></span>
                                 @endfor
-                            </div><!--./rate-->
+                            </div>
                             <p>
                                 {!! $product_detail->mota !!}
                             </p>
@@ -108,8 +100,8 @@
                                     @endfor
                                  @endif   
                             </ol>
-                        </div> <!--./brief-->
-                    </div> <!--./top-->
+                        </div>
+                    </div> 
 
                     <div class="vk-shop-detail__bot">
                         <h2 class="vk-shop-detail__heading">Thông tin sản phẩm</h2>
@@ -119,9 +111,9 @@
                              <div class="fb-comments" data-href="{{url('tin-tuc/'.$product_detail->alias.'.html')}}" data-width="100%" data-numposts="5"></div>
                         </div>
 
-                    </div> <!--./BOT-->
+                    </div> 
 
-                </div> <!--./col-9-->
+                </div> 
 
                 <div class="col-lg-3">
                     <aside class="vk-sidebar">
@@ -133,21 +125,21 @@
                                 <li class="vk-list__item @if($cate->alias == $cateProduct->alias)active @endif"><a href="{{url('san-pham/'.$cate->alias)}}" title="">{{$cate->name}}</a></li>
                                 @endforeach
                             </ul>
-                        </div> <!--./box-->
+                        </div>
 
                         <div class="vk-sidebar__box d-none d-lg-block">
                             <div class="vk-ads vk-img">
-                                <?php $banner = DB::table('banner_content')->where('position', 5)->first() ?>
-                                <a href="{{$banner->link}}" title="">
-                                    <img src="{{asset('upload/banner/'.$banner->image)}}" alt="" >
+                                <?php $qc = DB::table('lienket')->where('com','chuyen-muc')->get(); ?>
+                                @foreach($qc as $q)
+                                <a href="" title="">
+                                    <img src="{{asset('upload/hinhanh/'.$q->photo)}}" alt="" >
                                 </a>
+                                @endforeach
                             </div>
-                        </div><!--./box-->
+                        </div>
                     </aside>
-                </div> <!--./col-3-->
-
-            </div> <!--./row-->
-
+                </div>
+            </div>
             <div class="vk-shop-related">
                 <h3 class="vk-shop-related__heading">Các sản phẩm liên quan khác</h3>
                 <div class="vk-shop-related__list vk-slider row" data-slider="shop-related">
@@ -165,16 +157,15 @@
                                     @for($i=0; $i< ($item->ratepoint); $i++)
                                     <span class="vk-rate__item"><i class="fa fa-star"></i></span>
                                     @endfor
-                                </div> <!--./rate-->
+                                </div>
                             </div>
-                        </div> <!--./vk-shop-item-->
+                        </div>
                     </div>
                     @endforeach
                 </div>
-            </div> <!--./shop-related-->
-
-        </div> <!--./container-->
-    </div><!--./page-->
+            </div> 
+        </div>
+    </div>
     <div class="vk-partner animation fadeIn">
 
         <div class="container">

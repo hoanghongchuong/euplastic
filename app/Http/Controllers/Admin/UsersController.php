@@ -74,9 +74,9 @@ class UsersController extends Controller
             // }
             $data->save();
 
-            return redirect('admin/users/info')->with('status','Cập nhật thành công');
+            return redirect('backend/users/info')->with('status','Cập nhật thành công');
         }else{
-            return redirect('admin')->with('status','Cập nhật dữ liệu lỗi');
+            return redirect('backend')->with('status','Cập nhật dữ liệu lỗi');
         }
     }
 }

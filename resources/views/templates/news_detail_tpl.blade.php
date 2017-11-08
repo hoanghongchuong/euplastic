@@ -79,10 +79,12 @@
 
                         <div class="vk-sidebar__box d-none d-lg-block">
                             <div class="vk-ads vk-img">
-                                 <?php $banner = DB::table('banner_content')->where('position', 4)->first(); ?>
-                                <a href="{{$banner->link}}" title="">
-                                    <img src="{{asset('upload/banner/'.$banner->image)}}" alt="" >
+                                 <?php $qc = DB::table('lienket')->where('com','chuyen-muc')->get(); ?>
+                                @foreach($qc as $q)
+                                <a href="" title="">
+                                    <img src="{{asset('upload/hinhanh/'.$q->photo)}}" alt="" >
                                 </a>
+                                @endforeach
                             </div>
                         </div><!--./box-->
 

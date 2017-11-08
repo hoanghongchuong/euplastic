@@ -7,7 +7,8 @@
     <div class="vk-breadcrumb">
         <div class="vk-breadcrumb__banner">
             <div class="vk-img vk-img--cover">
-                <img src="{{asset('public/images/banner/banner-1.jpg')}}" alt="" class="">
+                <?php $q = DB::table('banner_content')->where('position', 3)->first(); ?>
+                <img src="{{asset('upload/banner/'.$q->image)}}" alt="" class="">
             </div>
         </div>
         <div class="vk-breadcrumb__content">

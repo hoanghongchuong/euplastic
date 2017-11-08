@@ -26,7 +26,7 @@ class MenuController extends Controller {
         }else{
             $com='';
         }
-        $data = Menu::select()->where('com' , $com)->get();
+        $data = Menu::select()->where('com' , $com)->orderBy('stt','asc')->get();
     	return view('admin.menu.list', compact('data','trang'));
     }
     public function getAdd()
@@ -44,11 +44,11 @@ class MenuController extends Controller {
         $parent = Menu::select('id','name','parent_id')->where('com' , $com)->get()->toArray();
     	return view('admin.menu.add', compact('parent','trang'));
     }
-    public function postAdd(NewsCateRequest $request)
+    public function postAdd(MenuRequest $request)
     {
         $com= $request->txtCom;
-    	$cate = new NewsCate;
-        $cate->parent_id = $request->txtNewsCate;
+    	$cate = new Menu;
+        $cate->parent_id = $request->txtmenu;
         $cate->name = $request->txtName;
         $cate->alias = $request->txtAlias;
         $cate->keyword = $request->txtKeyword;
@@ -62,7 +62,7 @@ class MenuController extends Controller {
             $cate->status = 0;
         }
         $cate->save();
-        return redirect('admin/menu?type='.$com)->with('status','Thêm mới thành công !');
+        return redirect('backend/menu?type='.$com)->with('status','Thêm mới thành công !');
     }
     public function getEdit(Request $request)
     {
@@ -87,7 +87,7 @@ class MenuController extends Controller {
                     $data->status = 1; 
                 }
                 $data->update();
-                return redirect('admin/menu?type='.$com)->with('status','Cập nhật thành công !');
+                return redirect('backend/menu?type='.$com)->with('status','Cập nhật thành công !');
             }
             
             $parent = Menu::orderBy('stt', 'asc')->where('com' , $com)->get()->toArray();
@@ -96,7 +96,7 @@ class MenuController extends Controller {
         }else{
             $data = Menu::all();
             //return redirect()->route('admin.menu.index')->with('status','Dữ liệu không có thực');
-            return redirect('admin/menu?type='.$com)->with('status','Dữ liệu không có thực !');
+            return redirect('backend/menu?type='.$com)->with('status','Dữ liệu không có thực !');
         }
     }
 
@@ -114,8 +114,8 @@ class MenuController extends Controller {
         $id=$request->get('id');
         $news_cate = Menu::find($id);
         if(!empty($news_cate)){
-            if($request->txtNewsCate!= $id && $request->txtNewsCate>0){
-                $news_cate->parent_id = $request->txtNewsCate;
+            if($request->txtmenu!= $id && $request->txtmenu>0){
+                $news_cate->parent_id = $request->txtmenu;
             }else{
                 $news_cate->parent_id = 0;
             }
@@ -134,7 +134,7 @@ class MenuController extends Controller {
 
             $news_cate->save();
 
-            return redirect('admin/menu/edit?id='.$id.'&type='.$com)->with('status','Cập nhật thành công');
+            return redirect('backend/menu/edit?id='.$id.'&type='.$com)->with('status','Cập nhật thành công');
         }else{
             return redirect()->back()->with('status','Dữ liệu không có thực');
         }
@@ -148,7 +148,7 @@ class MenuController extends Controller {
         }
         $product = Menu::findOrFail($id);
         $product->delete();
-        return redirect('admin/menu?type='.$com)->with('status','Xóa thành công');
+        return redirect('backend/menu?type='.$com)->with('status','Xóa thành công');
     }
     public function getDeleteList($id){
         if($_GET['type']=='tin-tuc') $trang='tin tức';
@@ -166,6 +166,6 @@ class MenuController extends Controller {
             $product = Menu::findOrFail($listid_item);
             $product->delete();
         }
-        return redirect('admin/menu?type='.$com)->with('status','Xóa thành công');
+        return redirect('backend/menu?type='.$com)->with('status','Xóa thành công');
     }
 }

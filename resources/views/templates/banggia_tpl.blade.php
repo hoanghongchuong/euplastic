@@ -30,7 +30,8 @@
                     <div class="vk-price-table__box">
                         <h1 class="vk-page__heading">BẢNG GIÁ</h1>
                         <p>
-                           
+                           <?php $gt = DB::table('about')->where('com', 'bang-gia')->first(); ?>
+                           {!! $gt->content !!}
                         </p>
 
                         <ul class="vk-list vk-list--style-3">
@@ -45,8 +46,8 @@
                 </div> <!--./col-->
                 <div class="col-lg-6 d-none d-lg-block">
                     <div class="vk-price-table__box-1">
-                        <a href="#" title="" class="vk-btn vk-btn--outline-danger">BẢNG GIÁ TẠI HÀ NỘI</a>
-                        <a href="#" title="" class="vk-btn vk-btn--green-1 vk-btn--outline">BẢNG GIÁ TẠI
+                        <a href="{{url('bang-gia/'.$data[0]->alias.'.html')}}" title="" class="vk-btn vk-btn--outline-danger">BẢNG GIÁ TẠI HÀ NỘI</a>
+                        <a href="{{url('bang-gia/'.$data[1]->alias.'.html')}}" title="" class="vk-btn vk-btn--green-1 vk-btn--outline">BẢNG GIÁ TẠI
                             <br> TP. HỒ CHÍ MINH</a>
                         <img src="{{asset('public/images/price-table/map.png')}}" alt="" class="img-fluid">
                     </div> <!--./box-->

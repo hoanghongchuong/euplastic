@@ -9,7 +9,7 @@ use App\Images;
 use Input, File;
 use Validator;
 use Auth;
-
+use DB;
 class AboutController extends Controller
 {
     public function index()
@@ -79,6 +79,7 @@ class AboutController extends Controller
         $id= $request->get('id');    
         if($_GET['type']=='gioi-thieu') $trang='Giới thiệu';
         else if($_GET['type']=='chung-chi') $trang='Chứng chỉ kĩ thuật';
+        else if($_GET['type']=='bang-gia') $trang='Bảng giá';
         else $trang= 'Bài viết';
 
 
@@ -87,11 +88,14 @@ class AboutController extends Controller
         }else{
             $com='';
         }
-        $data = About::select()->where('com',$com)->where('id',$id)->first();
+        
+        // $data = About::select()->where('com',$com)->where('id',$id)->first();
+        $data = DB::table('about')->where('com',$com)->first();
+        // dd($data);
         if(empty($data)){ 
             $data = new About;
             $data->com = $com;
-
+            $data->content = $request->txtContent;
             $data->user_id = Auth::user()->id;
 
             if($data->save()){
@@ -111,6 +115,7 @@ class AboutController extends Controller
     {
         if($_GET['type']=='gioi-thieu') $trang='Giới thiệu';
         else if($_GET['type']=='chung-chi') $trang='Chứng chỉ kĩ thuật';
+        else if($_GET['type']=='bang-gia') $trang='Bảng giá';
         else $trang= 'Bài viết';
 
         if(!empty($_GET['type'])){
@@ -118,7 +123,8 @@ class AboutController extends Controller
         }else{
             $com='';
         }
-        $data = About::select()->get()->first();
+        $data = About::select()->where('com' , $com)->get()->first();
+
         if(!empty($data)){
             
             $data->name = $request->txtName;
@@ -137,7 +143,7 @@ class AboutController extends Controller
                 $data->status = 0;
             }
             $data->user_id   = Auth::user()->id;
-
+            // dd($data);    
             $data->save();
             return redirect('backend/about/edit?type='.$com)->with('status','Cập nhật thành công');
         }else{

@@ -190,18 +190,18 @@ Route::group(['middleware' =>'authen', 'prefix' => 'backend'], function(){
 		Route::get('{id}/delete',['as'=>'admin.newscate.getDelete','uses'=>'Admin\NewsCateController@getDelete']);
 		Route::get('{id}/delete_list',['as'=>'admin.newscate.getDeleteList','uses'=>'Admin\NewsCateController@getDeleteList']);
 	});
-	// Route::group(['prefix' => 'menu'], function(){
-	// 	Route::get('/',['as'=>'admin.menu.index','uses'=>'Admin\MenuController@getDanhSach']);
-	// 	Route::get('add',['as'=>'admin.menu.getAdd','uses'=>'Admin\MenuController@getAdd']);
-	// 	Route::post('postAdd',['as'=>'admin.menu.postAdd','uses'=>'Admin\MenuController@postAdd']);
+	Route::group(['prefix' => 'menu'], function(){
+		Route::get('/',['as'=>'admin.menu.index','uses'=>'Admin\MenuController@getDanhSach']);
+		Route::get('add',['as'=>'admin.menu.getAdd','uses'=>'Admin\MenuController@getAdd']);
+		Route::post('postAdd',['as'=>'admin.menu.postAdd','uses'=>'Admin\MenuController@postAdd']);
 
-	// 	Route::get('edit',['as'=>'admin.menu.getEdit','uses'=>'Admin\MenuController@getEdit']);
+		Route::get('edit',['as'=>'admin.menu.getEdit','uses'=>'Admin\MenuController@getEdit']);
 
-	// 	Route::post('edit',['as'=>'admin.menu.update','uses'=>'Admin\MenuController@update']);
+		Route::post('edit',['as'=>'admin.menu.update','uses'=>'Admin\MenuController@update']);
 
-	// 	Route::get('{id}/delete',['as'=>'admin.menu.getDelete','uses'=>'Admin\MenuController@getDelete']);
-	// 	Route::get('{id}/delete_list',['as'=>'admin.menu.getDeleteList','uses'=>'Admin\MenuController@getDeleteList']);
-	// });
+		Route::get('{id}/delete',['as'=>'admin.menu.getDelete','uses'=>'Admin\MenuController@getDelete']);
+		Route::get('{id}/delete_list',['as'=>'admin.menu.getDeleteList','uses'=>'Admin\MenuController@getDeleteList']);
+	});
 
 	Route::group(['prefix'=>'position'], function(){
 		Route::get('/',['as'=>'admin.position.index','uses'=>'Admin\PositionController@getList']);

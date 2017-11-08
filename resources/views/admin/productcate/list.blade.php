@@ -74,7 +74,11 @@
                   {{ 'None' }}
                 @endif
                 </td> -->
-                <td>{{$item->name}}</td>
+                <td>
+                    <p>{{$item->name}}</p>
+                    <p><a href="{{url('san-pham/'.$item->alias)}}" title="">{{url('san-pham/'.$item->alias)}}</a></p>
+
+                </td>
                 <td class="text-center with_dieuhuong">
                   @if($item->status>0)
                     <a href="backend/productcate/edit?id={{$item->id}}&hienthi={{ time() }}" class="btn btn-primary btn-xs"><i class="fa fa-eye"></i> Bật</a>

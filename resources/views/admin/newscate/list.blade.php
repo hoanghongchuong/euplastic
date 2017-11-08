@@ -56,7 +56,7 @@
                 <th>Danh mục cha</th>
                 @endif -->
                 <th>Tên danh mục</th>
-                <th class="text-center with_dieuhuong">Hiển thị</th>
+                <!-- <th class="text-center with_dieuhuong">Hiển thị</th> -->
                 <th class="text-center with_dieuhuong">Sửa</th>
                 <th class="text-center with_dieuhuong">Xóa</th>
               </tr>
@@ -78,13 +78,13 @@
                 </td>
                 @endif -->
                 <td>{{$item->name}}</td>
-                <td class="text-center with_dieuhuong">
+                <!-- <td class="text-center with_dieuhuong">
                   @if($item->status>0)
                     <a href="backend/newscate/edit?id={{$item->id}}&hienthi={{ time() }}&type={{ @$_GET['type'] }}" class="btn btn-primary btn-xs"><i class="fa fa-eye"></i> Bật</a>
                   @else
                     <a href="backend/newscate/edit?id={{$item->id}}&hienthi={{ time() }}&type={{ @$_GET['type'] }}" class="btn btn-danger btn-xs"><i class="fa fa-eye"></i> Tắt</a>
                   @endif
-                </td>
+                </td> -->
                 <td class="text-center with_dieuhuong">
                   <i class="fa fa-pencil fa-fw"></i><a href="backend/newscate/edit?id={{$item->id}}&type={{ @$_GET['type'] }}">Edit</a>
                 </td>

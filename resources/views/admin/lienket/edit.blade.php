@@ -20,7 +20,7 @@
     <div class="box">
     	@include('admin.messages_error')
         <div class="box-body">
-        	<form method="post" action="admin/lienket/edit?id={{$id}}&type={{ @$_GET['type'] }}" enctype="multipart/form-data">
+        	<form method="post" action="backend/lienket/edit?id={{$id}}&type={{ @$_GET['type'] }}" enctype="multipart/form-data">
         		<input type="hidden" name="_token" value="{!! csrf_token() !!}" />
         		
       			<div class="row">
@@ -104,7 +104,7 @@
 			    	<div class="row">
 						<div class="col-md-6">
 					    	<button type="submit" class="btn btn-primary">Cập nhật</button>
-					    	<button type="button" class="btn btn-danger" onclick="javascript:window.location='admin/lienket?type={{ @$_GET['type'] }}'">Thoát</button>
+					    	<button type="button" class="btn btn-danger" onclick="javascript:window.location='backend/lienket?type={{ @$_GET['type'] }}'">Thoát</button>
 				    	</div>
 			    	</div>
 			  	</div>

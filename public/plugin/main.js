@@ -557,44 +557,44 @@ var Slider = function () {
             ],
         })
 
-        $('[data-slider="news"]').slick({
-            nextArrow: '<button  class="vk-btn vk-slider__arrow vk-slider__arrow--next"><img src="images/icon/arrow-right-2.png"></button>',
-            prevArrow: '<button  class="vk-btn vk-slider__arrow vk-slider__arrow--prev"><img src="images/icon/arrow-left-2.png"></button>',
-            slidesToShow: 4,
-            // autoplay:true,
-            infinite:false,
+        // $('[data-slider="news"]').slick({
+        //     nextArrow: '<button  class="vk-btn vk-slider__arrow vk-slider__arrow--next"><img src="images/icon/arrow-right-2.png"></button>',
+        //     prevArrow: '<button  class="vk-btn vk-slider__arrow vk-slider__arrow--prev"><img src="images/icon/arrow-left-2.png"></button>',
+        //     slidesToShow: 4,
+        //     // autoplay:true,
+        //     infinite:false,
 
-            responsive: [
-                {
-                    breakpoint: 1200,
-                    settings: {
-                        arrows: false
-                    }
-                },
-                {
-                    breakpoint: 992,
-                    settings: {
-                        slidesToShow: 3,
-                        arrows: false
-                    }
-                },
-                {
-                    breakpoint: 768,
-                    settings: {
-                        slidesToShow: 2,
-                        arrows: false
-                    }
-                },
-                {
-                    breakpoint: 567,
-                    settings: {
-                        slidesToShow: 1,
-                        arrows: false
+        //     responsive: [
+        //         {
+        //             breakpoint: 1200,
+        //             settings: {
+        //                 arrows: false
+        //             }
+        //         },
+        //         {
+        //             breakpoint: 992,
+        //             settings: {
+        //                 slidesToShow: 3,
+        //                 arrows: false
+        //             }
+        //         },
+        //         {
+        //             breakpoint: 768,
+        //             settings: {
+        //                 slidesToShow: 2,
+        //                 arrows: false
+        //             }
+        //         },
+        //         {
+        //             breakpoint: 567,
+        //             settings: {
+        //                 slidesToShow: 1,
+        //                 arrows: false
 
-                    }
-                }
-            ],
-        })
+        //             }
+        //         }
+        //     ],
+        // })
 
         // $('[data-slider="partner"]').slick({
         //     nextArrow: '<button  class="vk-btn vk-slider__arrow vk-slider__arrow--next"><img src="images/icon/arrow-right-3.png"></button>',

@@ -277,7 +277,7 @@ class NewsController extends Controller
         $news = News::findOrFail($id);
         $news->delete();
         File::delete('upload/news/'.$news->photo);
-        return redirect('admin/news?type='.$com)->with('status','Xóa thành công');
+        return redirect('backend/news?type='.$com)->with('status','Xóa thành công');
     }
     public function getDeleteList($id){
         if($_GET['type']=='tin-tuc') $trang='tin tức';

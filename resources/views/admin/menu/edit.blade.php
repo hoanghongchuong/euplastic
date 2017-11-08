@@ -33,14 +33,14 @@
 	                  		<div class="row">
 		                  		<div class="col-md-6 col-xs-12">
 			                    	
-						        	<!-- <div class="form-group">
+						        	<div class="form-group">
 								      	<label for="ten">Danh mục cha</label>
 								      	<select name="txtmenu" class="form-control">
 
 								      		<option value="0">Chọn danh mục</option>
 								      		<?php cate_news_parent($parent,0,"--",$data["parent_id"]) ?>
 								      	</select>
-									</div> -->
+									</div>
 							    	<div class="form-group @if ($errors->first('txtName')!='') has-error @endif">
 								      	<label for="ten">Tên</label>
 								      	<input type="text" name="txtName" id="txtName" value="{!! old('txtName', isset($data) ? $data->name : null) !!}"  class="form-control" />

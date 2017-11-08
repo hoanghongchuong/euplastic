@@ -9,7 +9,8 @@
     <div class="vk-breadcrumb">
         <div class="vk-breadcrumb__banner">
             <div class="vk-img vk-img--cover">
-                <img src="{{asset('public/images/banner/banner-1.jpg')}}" alt="" class="">
+                <?php $q = DB::table('banner_content')->where('position', 4)->first(); ?>
+                <img src="{{asset('upload/banner/'.$q->image)}}" alt="" class="">
             </div>
         </div>
         <div class="vk-breadcrumb__content">
@@ -97,4 +98,38 @@
         {!! $setting->iframemap !!}
 
 </section>
+<script>
+    $('[data-slider="partner"]').slick({
+            nextArrow: '<button  class="vk-btn vk-slider__arrow vk-slider__arrow--next"><img src="{{asset('public/images/icon/arrow-right-3.png')}}"></button>',
+            prevArrow: '<button  class="vk-btn vk-slider__arrow vk-slider__arrow--prev"><img src="{{asset('public/images/icon/arrow-left-3.png')}}"></button>',
+            slidesToShow: 5,
+            swipeToSlide:true,
+            autoplay:true,
+
+            responsive: [
+                {
+                    breakpoint: 992,
+                    settings: {
+                        slidesToShow: 3,
+                        arrows: false
+                    }
+                },
+                {
+                    breakpoint: 768,
+                    settings: {
+                        slidesToShow: 2,
+                        arrows: false
+                    }
+                },
+                {
+                    breakpoint: 567,
+                    settings: {
+                        slidesToShow: 1,
+                        arrows: false
+
+                    }
+                }
+            ],
+        })
+</script>
 @endsection

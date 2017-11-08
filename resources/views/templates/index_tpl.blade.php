@@ -14,7 +14,7 @@ $banner = DB::table('banner_content')->where('position',1)->get();
         <div class="vk-home__about">
             <div class="container">
                 <div class="row">
-                    <?php $gt = DB::table('gioithieu')->where('status',1)->first(); ?>
+                    <?php $gt = DB::table('gioithieu')->where('status',1)->orderBy('id','asc')->first(); ?>
                     <div class="col-lg-6">
                         <div class="vk-about__left d-none d-lg-block ">
                             <div class="vk-img animation fadeInLeft">
@@ -25,7 +25,6 @@ $banner = DB::table('banner_content')->where('position',1)->get();
 
                     <div class="col-lg-6">
                         <div class="vk-about__right">
-                            <!-- <h3 class="vk-about__title text-uppercase animation fadeIn">Công ty TNHH sản xuất nhựa Châu Âu</h3> -->
                             <p class="animation fadeIn delay1">
                                {!! $gt->mota !!}
                             </p>
@@ -160,6 +159,44 @@ $banner = DB::table('banner_content')->where('position',1)->get();
             autoplay:true,
 
             responsive: [
+                {
+                    breakpoint: 992,
+                    settings: {
+                        slidesToShow: 3,
+                        arrows: false
+                    }
+                },
+                {
+                    breakpoint: 768,
+                    settings: {
+                        slidesToShow: 2,
+                        arrows: false
+                    }
+                },
+                {
+                    breakpoint: 567,
+                    settings: {
+                        slidesToShow: 1,
+                        arrows: false
+
+                    }
+                }
+            ],
+        })
+    $('[data-slider="news"]').slick({
+            nextArrow: '<button  class="vk-btn vk-slider__arrow vk-slider__arrow--next"><img src="{{asset('public/images/icon/arrow-right-2.png')}}"></button>',
+            prevArrow: '<button  class="vk-btn vk-slider__arrow vk-slider__arrow--prev"><img src="{{asset('public/images/icon/arrow-left-2.png')}}"></button>',
+            slidesToShow: 4,
+            autoplay:true,
+            infinite:false,
+
+            responsive: [
+                {
+                    breakpoint: 1200,
+                    settings: {
+                        arrows: false
+                    }
+                },
                 {
                     breakpoint: 992,
                     settings: {

@@ -45,7 +45,7 @@
                 <td class="text-center with_dieuhuong">{{$k+1}}</td>
                 <td>
                   {{$item->name}}<br>
-                  <!-- <a href="{{ asset($item->alias.'.html') }}" target="_blank">{{ $item->alias.'.html' }}</a> -->
+                  <p><a href="{{url('gioi-thieu/'.$item->alias)}}" target="_blank" title="">{{url('gioi-thieu/'.$item->alias)}}</a></p>
                 </td>
                 
                 <td class="text-center with_dieuhuong">
